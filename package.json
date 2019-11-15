@@ -1,0 +1,24 @@
+{
+  "name": "426final",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ma101521/426Final.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ma101521/426Final/issues"
+  },
+  "homepage": "https://github.com/ma101521/426Final#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bulma": "^0.8.0",
+    "jquery": "^3.4.1"
+  }
+}
