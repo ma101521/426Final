@@ -4,17 +4,26 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Mothership</title>
-        <!--Need to link CSS and Bulma here-->
+        <link rel="stylesheet" href="node_modules/bulma/css/bulma.css"/>
+        <link rel="stylesheet" href="mothership.css"/>
     </head>
     <body>
-        <!--Make sure the buttons have links to the respective other html pages-->
         <div>
+            <img src="" alt="mothership picture">
             <h1>Welcome to Mothership</h1>
-            <!--Login/Signup page-->
-            <p>
-                This is the home screen that has info about
-                health care and stuff like that :)
-            </p>
+            <div class="login">
+                <div class="content">
+                    <form class="loginForm">
+                        <input id="email" type="email" placeholder="Email" required><br>
+                        <input id="password" type="password" placeholder="Password" required>
+                        <div class="control">
+                            <button type="submit" class="signupButton"><a href="survey.html">Sign Up</a></button>
+                            <button type="submit" class="loginButton"><a href="dashboard.html">Login</a></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        <a href="https://www.ourmothership.org/">Mothership main site</a>
         </div>
 
         <!--Links to JS files will probably go here-->
