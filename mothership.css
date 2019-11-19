@@ -1,0 +1,38 @@
+body{
+    margin-bottom:0px;
+    padding-bottom:0px;
+}
+
+.is-vertical-center{
+    display: flex;
+    align-items: center;
+}
+
+.input{
+    margin-bottom: 5px;
+}
+
+.is-purple{
+    background-color: #c51bd4;
+}
+
+.button.is-purple{
+    background-color: #c51bd4;
+}
+
+.input.is-purple{
+    border-color: #c51bd4;
+}
+
+.button a{
+    color: white;
+}
+
+.button.is-purple:hover{
+    background-color: #b40ac3;
+}
+
+#logo{
+    height: 45%;
+    width: 45%;
+}
