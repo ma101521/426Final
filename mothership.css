@@ -8,6 +8,49 @@ body{
     align-items: center;
 }
 
+.level{
+    padding: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+}
+
+.table{
+    width: 100%;
+}
+
+.tableBox{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    background: linear-gradient(#49c6f4, #c51bd4);
+}
+
+.rowBox{
+    padding: 4%;
+    margin: 5%;
+    border: thin solid black;
+}
+
+.rowHeader{
+    padding-left: 4%;
+    padding-right: 4%;
+    margin: 5%;
+    border: thin solid black;
+}
+
+.contactName{
+    font-size: large;
+}
+
+.contactMatch{
+    font-size: xx-large;
+}
+
+.contactLink{
+    text-align: center;
+}
+
 .input{
     margin-bottom: 5px;
 }
@@ -18,6 +61,7 @@ body{
 
 .button.is-purple{
     background-color: #c51bd4;
+    color: white;
 }
 
 .input.is-purple{
