@@ -76,6 +76,39 @@ body{
     background-color: #b40ac3;
 }
 
+.question .box{
+    margin: 5%;
+}
+
+.radio{
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.slider{
+    -webkit-appearance: none;
+    width: 90%;
+    height: 15px;
+    border-radius: 5px;
+    background: #eeeeee;
+    outline: none;
+    opacity: 1.0;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #c51bd4;
+    cursor: pointer;
+  }
+
 #logo{
     height: 45%;
     width: 45%;

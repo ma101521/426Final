@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>  
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Survey</title>
+        <link rel="stylesheet" href="node_modules/bulma/css/bulma.css"/>
+        <link rel="stylesheet" href="mothership.css"/>
+    </head>
+    <body>
+        <div class="section is-purple">
+            <div class="container">
+                <div>
+                    <h1 class="title has-text-white has-text-centered">Survey</h1>
+                    <h5 class="subtitle has-text-weight-light has-text-white is-italic has-text-centered">Fill out your health information</h5>
+                </div>
+            </div>
+        </div>
+        <div id="Survey">
+            <form>
+                <div class = "question">
+                    <div class="box">
+                        <h4 class = "subtitle has-text-weight-bold">I am a ...</h4>
+                        <hr class="is-blue">
+                        <div class="control">
+                            <input type="radio" name="I am a" value="patient" class="radio">Patient<br>
+                            <input type="radio" name="I am a" value="provider" class="radio">Provider<br>
+                        </div>    
+                    </div>                   
+                </div>
+                
+                <div class = "question">
+                    <div class="box">
+                        <h4 class = "subtitle has-text-weight-bold">What is your gender? </h4>
+                        <hr>
+                        <div class="control">
+                            <input type="radio" name="What is your gender?" value="Male" class="radio">Male<BR>
+                            <input type="radio" name="What is your gender?" value="Female" class="radio">Female<BR>
+                            <input type="radio" name="What is your gender?" value="Non-binary" class="radio">Non-binary<BR>
+                        </div>
+                    </div>
+                </div>
+
+                <div class = "question">
+                    <div class="box">
+                        <h4 class = "subtitle has-text-weight-bold">Which of the following statements describe you? Please check all that apply. </h4>
+                        <hr>
+                        <div class="control">
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am interested in becoming a parent in the future." class="checkbox"> I am interested in becoming a parent in the future.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am interested in becoming a parent through fostering and/or adoption in the future." class="checkbox"> I am interested in becoming a parent through fostering and/or adoption in the future.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am interested in becoming pregnant in the future." class="checkbox"> I am interested in becoming pregnant in the future.<BR>
+                            
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am pregnant." class="checkbox"> I am pregnant.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am 0-3 months postpartum." class="checkbox"> I am 0-3 months postpartum.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am 3-6 months postpartum." class="checkbox"> I am 3-6 months postpartum.<BR>
+
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent to a newborn." class="checkbox"> I am a parent to a newborn.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent to an infant." class="checkbox"> I am a parent to an infant.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent to a toddler (1-4 years old)." class="checkbox"> I am a parent to a toddler (1-4 years old).<BR>
+
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent to a child who is 5-7 years old." class="checkbox"> I am a parent to a child who is 5-7 years old.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent to a child who is 8 + years old." class="checkbox"> I am a parent to a child who is 8 + years old.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent of twins." class="checkbox"> I am a parent of twins.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a foster parent." class="checkbox"> I am a foster parent.<BR>   
+                        </div>    
+                    </div>                   
+                </div>
+
+                <div class = "question">
+                    <div class="box">
+                        <h4 class = "subtitle has-text-weight-bold">What topics are you interested in learning more about? Please check all that apply. </h4>
+                        <hr>
+                        <div class="control">
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Nutrition for fertility " class="checkbox"> Nutrition for fertility<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Nutrition during pregnancy " class="checkbox"> Nutrition during pregnancy<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Nutrition after giving birth" class="checkbox"> Nutrition after giving birth<BR>
+                            
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Healthy recipes" class="checkbox"> Healthy recipes<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Meal planning" class="checkbox"> Meal planning<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value= "Breastfeeding" class="checkbox"> Breastfeeding<BR>
+
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Infant-feeding" class="checkbox"> Infant-feeding<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Introducing solid foods" class="checkbox"> Introducing solid foods<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Nutrition for toddlers" class="checkbox"> Nutrition for toddlers<BR>
+
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Food allergies, intolerances, and sensitivities " class="checkbox"> Food allergies, intolerances, and sensitivities <BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Self-care" class="checkbox"> Self-care<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Body image" class="checkbox"> Body image<BR>  
+                        </div>  
+                    </div>                     
+                </div>
+
+                <div class = "question">
+                    <div class="box">
+                        <h4 class = "subtitle has-text-weight-bold">How much do you agree or disagree with each of the following statement? Please select one response. </h4>
+                        <h4 class = "subtitle has-text-grey"> “I like routine.”</h4>
+                        <hr>
+                        <div class="control">
+                            <input type="radio" name= "I like routine." value="Strongly agree" class="radio">Strongly agree<BR>
+                            <input type="radio" name= "I like routine." value="Agree" class="radio">Agree<BR>
+                            <input type="radio" name= "I like routine." value="Neither agree nor disagree" class="radio">Neither agree nor disagree<BR>
+                            <input type="radio" name= "I like routine." value="Disagree" class="radio">Disagree<BR>
+                            <input type="radio" name= "I like routine." value="Strongly Disagree" class="radio">Strongly Disagree<BR>
+                        </div> 
+                    </div>                      
+                </div>
+
+                <div class = "question">
+                    <div class="box">
+                        <h4 class = "subtitle has-text-weight-bold">How much do you agree or disagree with the following statement? Please select one response. </h4>
+                        <h4 class = "subtitle has-text-grey"> “I like structure.”</h4>
+                        <hr>
+                        <div class="control">
+                            <input type="radio" name= "I like structure." value="Strongly agree" class="radio">Strongly agree<BR>
+                            <input type="radio" name= "I like structure." value="Agree" class="radio">Agree<BR>
+                            <input type="radio" name= "I like structure." value="Neither agree nor disagree" class="radio">Neither agree nor disagree<BR>
+                            <input type="radio" name= "I like structure." value="Disagree" class="radio">Disagree<BR>
+                            <input type="radio" name= "I like structure." value="Strongly Disagree" class="radio">Strongly Disagree<BR>
+                        </div> 
+                    </div>                      
+                </div>
+
+                <div class = "question">
+                    <div class="box">
+                        <h4 class = "subtitle has-text-weight-bold">How much do you agree or disagree with the following statement? Please select one response. </h4>
+                        <h4 class = "subtitle has-text-grey"> “I am a perfectionist.”</h4>
+                        <hr>
+                        <div class="control">
+                            <input type="radio" name= "I am a perfectionist." value="Strongly agree" class="radio">Strongly agree<BR>
+                            <input type="radio" name= "I am a perfectionist." value="Agree" class="radio">Agree<BR>
+                            <input type="radio" name= "I am a perfectionist." value="Neither agree nor disagree" class="radio">Neither agree nor disagree<BR>
+                            <input type="radio" name= "I am a perfectionist." value="Disagree" class="radio">Disagree<BR>
+                            <input type="radio" name= "I am a perfectionist." value="Strongly Disagree" class="radio">Strongly Disagree<BR>
+                        </div>    
+                    </div>                   
+                </div>
+                
+                <div class = "question">
+                    <div class="box">
+                        <h4 class = "subtitle has-text-weight-bold">How much do you agree or disagree with the following statement? Please select one response. </h4>
+                        <h4 class = "subtitle has-text-grey"> “It’s important for me and my family to achieve health ideals.”</h4>
+                        <hr>
+                        <div class="control">
+                            <input type="radio" name= "It’s important for me and my family to achieve health ideals." value="Strongly agree" class="radio">Strongly agree<BR>
+                            <input type="radio" name= "It’s important for me and my family to achieve health ideals." value="Agree" class="radio">Agree<BR>
+                            <input type="radio" name= "It’s important for me and my family to achieve health ideals." value="Neither agree nor disagree" class="radio">Neither agree nor disagree<BR>
+                            <input type="radio" name= "It’s important for me and my family to achieve health ideals." value="Disagree" class="radio">Disagree<BR>
+                            <input type="radio" name= "It’s important for me and my family to achieve health ideals." value="Strongly Disagree" class="radio">Strongly Disagree<BR>
+                        </div>   
+                    </div>                    
+                </div>
+                
+                <div class = "question">
+                    <div class="box">
+                        <h4 class = "subtitle has-text-weight-bold">How much do you agree or disagree with the following statement? Please select one response. </h4>
+                        <h4 class = "subtitle has-text-grey"> “My family’s overall well-being is more important to me than achieving specific health ideals.”</h4>
+                        <hr>
+                        <div class="control">
+                            <input type="radio" name= "My family’s overall well-being is more important to me than achieving specific health ideals." value="Strongly agree" class="radio">Strongly agree<BR>
+                            <input type="radio" name= "My family’s overall well-being is more important to me than achieving specific health ideals." value="Agree" class="radio">Agree<BR>
+                            <input type="radio" name= "My family’s overall well-being is more important to me than achieving specific health ideals." value="Neither agree nor disagree" class="radio">Neither agree nor disagree<BR>
+                            <input type="radio" name= "My family’s overall well-being is more important to me than achieving specific health ideals." value="Disagree" class="radio">Disagree<BR>
+                            <input type="radio" name= "My family’s overall well-being is more important to me than achieving specific health ideals." value="Strongly Disagree" class="radio">Strongly Disagree<BR>
+                        </div>  
+                    </div>                     
+                </div>
+
+                <div class="question">
+                    <div class="box">
+                        <h4 class = "subtitle has-text-weight-bold">How do you approach raising a healthy family?</h4>
+                        <hr>
+                        <div class="columns">
+                            <div class="column is-one-quarter has-text-centered">
+                                <h4>Researching information from the internet, books, and other people</h4>
+                            </div>
+                            <div class="column is-one-half has-text-centered">
+                                <input type="range" min="0" max="10" value="5" class="slider" id="myRange"></input>
+                            </div>
+                            <div class="column is-one-quarter has-text-centered">
+                                <h4>Going with my gut</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="box">
+                        <h4 class = "subtitle has-text-weight-bold">Who do you turn to for advice that you trust?</h4>
+                        <hr>
+                        <div class="columns">
+                            <div class="column is-one-quarter has-text-centered">
+                                <h4>Health Professionals</h4>
+                            </div>
+                            <div class="column is-one-half has-text-centered">
+                                <input type="range" min="0" max="10" value="5" class="slider" id="myRange"></input>
+                            </div>
+                            <div class="column is-one-quarter has-text-centered">
+                                <h4>Friends and Family</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question">
+                    <div class="box">
+                        <h4 class = "subtitle has-text-weight-bold">On average, how much time do you spend preparing a meal for your family? </h4>
+                        <hr>
+                        <div class="columns">
+                            <div class="column is-one-quarter has-text-centered">
+                                <h4>0 Minutes</h4>
+                            </div>
+                            <div class="column is-one-half has-text-centered">
+                                <input type="range" min="0" max="10" value="5" class="slider" id="myRange"></input>
+                            </div>
+                            <div class="column is-one-quarter has-text-centered">
+                                <h4>90 Minutes</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <footer class="footer is-purple"></footer>
+    </body>
+</html>
