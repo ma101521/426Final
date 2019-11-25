@@ -1,0 +1,115 @@
+body{
+    margin-bottom:0px;
+    padding-bottom:0px;
+}
+
+.is-vertical-center{
+    display: flex;
+    align-items: center;
+}
+
+.level{
+    padding: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+}
+
+.table{
+    width: 100%;
+}
+
+.tableBox{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    background: linear-gradient(#49c6f4, #c51bd4);
+}
+
+.rowBox{
+    padding: 4%;
+    margin: 5%;
+    border: thin solid black;
+}
+
+.rowHeader{
+    padding-left: 4%;
+    padding-right: 4%;
+    margin: 5%;
+    border: thin solid black;
+}
+
+.contactName{
+    font-size: large;
+}
+
+.contactMatch{
+    font-size: xx-large;
+}
+
+.contactLink{
+    text-align: center;
+}
+
+.input{
+    margin-bottom: 5px;
+}
+
+.is-purple{
+    background-color: #c51bd4;
+}
+
+.button.is-purple{
+    background-color: #c51bd4;
+    color: white;
+}
+
+.input.is-purple{
+    border-color: #c51bd4;
+}
+
+.button a{
+    color: white;
+}
+
+.button.is-purple:hover{
+    background-color: #b40ac3;
+}
+
+.question .box{
+    margin: 5%;
+}
+
+.radio{
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.slider{
+    -webkit-appearance: none;
+    width: 90%;
+    height: 15px;
+    border-radius: 5px;
+    background: #eeeeee;
+    outline: none;
+    opacity: 1.0;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #c51bd4;
+    cursor: pointer;
+  }
+
+#logo{
+    height: 45%;
+    width: 45%;
+}
