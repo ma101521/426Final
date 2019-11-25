@@ -3,7 +3,7 @@
 
 $(function() {
     //test loading
-    /* $('.signupButton').click(logSignUp);
+    $('.signupButton').click(logSignUp);
 
     function logSignUp(event){
         event.preventDefault();
@@ -11,37 +11,19 @@ $(function() {
         console.log(event.currentTarget);
         console.log($('#email').val());
         console.log($('#password').val());
-    } */
 
-    $('.signupButton').on('click', test);
+        let email = $('#email').val();
+        let password = $('#password').val();
 
-
-  function test(event){
-    event.preventDefault();
-    console.log('hi');
-    const pubRoot = new axios.create({
-      baseURL: "http://localhost:3000/public"
-    });
-
-    async function createAuthor({first = 'John', last = 'Doe', numBooks = 0}) {
-      return await pubRoot.post(`/authors/`, {
-        data: {first, last, numBooks}
-      })
+        axios.post('http://localhost:3000/account/create',
+        {
+          name: email,
+          pass: password
+        })
+        .then(response => {
+          console.log(response);
+        }).catch(error => {
+          console.log(error);
+        });
     }
-
-    async function getAllAuthors() {
-      return await pubRoot.get('/authors');
-    }
-
-    (async () => {
-      await createAuthor({
-        first: "chris",
-        numBooks: 4
-      });
-
-      let {data} = await getAllAuthors();
-      console.log(data)
-    })();
-
-  }
 });
