@@ -40,7 +40,10 @@ $(function() {
           pass: password
         })
         .then(response => {
-          console.log(response);
+          console.log(response.status);
+          if(response.status === 200){
+            window.location.href = "dashboard.html";
+          }
         }).catch(error => {
           console.log(error);
         });  
