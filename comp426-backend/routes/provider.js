@@ -8,3 +8,10 @@ export const prefix = '/provider';
 
 
 const {providerStore} = require('../data/DataStore');
+
+//method to post provider
+//router.post('/create', async function (req, res) {}
+
+//method to get provider with username input
+
+//method to get all providers 

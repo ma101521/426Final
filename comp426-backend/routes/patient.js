@@ -7,3 +7,10 @@ export const prefix = '/patient';
 
 
 const {patientStore} = require('../data/DataStore');
+
+//method to post patient
+//router.post('/create', async function (req, res) {}
+
+//method to get patient with username input
+
+//method to get all patient 
