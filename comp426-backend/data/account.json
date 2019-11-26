@@ -1,0 +1,33 @@
+{
+  "users": {
+    "test@unc": {
+      "edu": {
+        "passwordHash": "$2b$10$mG9nGZxqL1VoWIDjDiKoOuLE2FZyamVBecvDlRgbyEWHGNbByLoRK"
+      }
+    },
+    "test": {
+      "passwordHash": "$2b$10$Dl0i45yG7Lx3zCQ581nDz.P6GSpMBLQy3ScU./k3d8HsgnEbHalWm"
+    },
+    "marisa": {
+      "passwordHash": "$2b$10$9IjwgP2QqRItqrhYZmSwGuVd9mcXCUfeCdhPt.YJY3KM1WeL.frtC"
+    },
+    "mydog": {
+      "passwordHash": "$2b$10$E8aVTepTX7vC2tBJSrG4B.WG7TfeUwa2nEu1p0xXIZ/SLAK1vVQ/G"
+    },
+    "benny": {
+      "passwordHash": "$2b$10$ojMVGTEKtf1HNEvEViN4B.vVDDGyJLJeDyxGZ3bYOqFS5/bMV5cpe"
+    },
+    "benny1": {
+      "passwordHash": "$2b$10$FK3zxT.aAYBfYOWxZPn5j.1fDuXyo5z.xuOHNMZctEHEAa6l0jDHe"
+    },
+    "marisa3": {
+      "passwordHash": "$2b$10$SE7wBq5AqG0e7.fNK6tkyuBhlr.712NyapdvVvxN5eQwc8erQ/ofq"
+    },
+    "marisa4": {
+      "passwordHash": "$2b$10$TNAs1rJEdxl3WtyzzWjckeYsIHgQT7cviEnMK9wnIxi4dLaSg6T3a"
+    },
+    "newbie": {
+      "passwordHash": "$2b$10$rtG5K1fOeVD4EAnhp987zurcd9IL14UIrNe7.Psk4CYHg2vm3FZuK"
+    }
+  }
+}

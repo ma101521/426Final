@@ -78,6 +78,7 @@ router.post('/create', function (req, res) {
 
   let user = accountStore.get(`users.${name}`);
   if (user) {
+    //res.statusMessage = `User '${req.body.name}' is already a registered user.`;
     res.status(401).send({msg: `User '${req.body.name}' is already a registered user.`});
     return;
   }
