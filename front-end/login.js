@@ -8,8 +8,8 @@ $(function() {
 
     function SignUp(event){
         event.preventDefault();
-        console.log($('#username').val());
-        console.log($('#password').val());
+        //console.log($('#username').val());
+        //console.log($('#password').val());
 
         let username = $('#username').val();
         let password = $('#password').val();
@@ -20,21 +20,22 @@ $(function() {
           pass: password
         })
         .then(response => {
-          console.log(response.status);
           if(response.status === 200){
-            $('#errorBanner').empty()
-            window.location.href = "survey.html";
+            $('#errorBanner').empty();
+            $('#errorBanner').append(`<p>Successfully made account!</p>`);
+            setTimeout(function(){
+              $('#errorBanner').empty()
+              window.location.href = "survey.html";
+            }, 3000);
+            
           }
         }).catch(error => {
-          console.log(error);
-          $('#errorBanner').append(`<p>${error}</p>`)
+          $('#errorBanner').append(`<p>${error.response.data.msg}</p>`)
         });
     }
 
     function Login(event){
       event.preventDefault();
-        console.log($('#username').val());
-        console.log($('#password').val());
 
         let username = $('#username').val();
         let password = $('#password').val();

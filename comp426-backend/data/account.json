@@ -28,6 +28,42 @@
     },
     "newbie": {
       "passwordHash": "$2b$10$rtG5K1fOeVD4EAnhp987zurcd9IL14UIrNe7.Psk4CYHg2vm3FZuK"
+    },
+    "turkey": {
+      "passwordHash": "$2b$10$dsHfBEvCFCycuNKm2FjwzekcE2hLllIDwBvZ7xuZhpyIczvQwq6h6"
+    },
+    "user2": {
+      "passwordHash": "$2b$10$jJmv2KQ5HKE6Tmcnrvh2nO6DqbOTk9m0rs0bhCh9tAuMVvb/Txn6i"
+    },
+    "mydog1": {
+      "passwordHash": "$2b$10$yVZ47IjE0cjGTm8WwwXiwe.71MM6vluPL3OH2oZI9CYyBu7bKw5PG"
+    },
+    "mydog12": {
+      "passwordHash": "$2b$10$vdoTA9JbHggnt77FTIsi5.BaRsIYxL.D2oEoHf/dD6tL3GtVgw6em"
+    },
+    "mydog123": {
+      "passwordHash": "$2b$10$AjJvu62e58Zajc4kXdNE1em6wRG/M0PZ2324h9j0Z.wumvot1WZ/y"
+    },
+    "mydog1234": {
+      "passwordHash": "$2b$10$rYQJvX5RjCGvgDUHGY.QSuGMvZ.hjRTnJJWPrRpHBew3gawquk40q"
+    },
+    "mydog12345": {
+      "passwordHash": "$2b$10$C/GFsRZ7BROVPnYZ2Q05COp66NgQFuKV1aSya6AzWP9qPJj4BkYL6"
+    },
+    "mydog123456": {
+      "passwordHash": "$2b$10$Io56/y2Hzs0QjSOLg3RFB.oFQkZJcRunJPrL82huzwSVg8uLMMTNK"
+    },
+    "mydog1234567": {
+      "passwordHash": "$2b$10$d7P6JpSG6ur2WK8T8Vjwu.BEXOuplA0/rZWJeMo.KOTdlFB8pcQSy"
+    },
+    "mydog12345678": {
+      "passwordHash": "$2b$10$9m8LsJINnOKS8Dt1daedt.noE58CQu6i6bVbRXsBqMYHbAoSQMfka"
+    },
+    "mydog123456789": {
+      "passwordHash": "$2b$10$af25bHX.1zLx9h59vzT/ae7MdAMyemZ.Doh3tj1n3OByTIJIM9CnK"
+    },
+    "thursday": {
+      "passwordHash": "$2b$10$18pI7TzSQN.cScbIxTjJ5OHBPXzU2YWrvSB2V52X..xY/QD99CVb6"
     }
   }
 }
