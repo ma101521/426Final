@@ -5,11 +5,11 @@ $(function() {
     //test loading
     $('.signupButton').click(SignUp);
     $('.loginButton').click(Login);
+    $('.deletButton').click(Delete);
+    $('#showLogin').click(showLogin);
 
     function SignUp(event){
         event.preventDefault();
-        //console.log($('#username').val());
-        //console.log($('#password').val());
 
         let username = $('#username').val();
         let password = $('#password').val();
@@ -31,7 +31,7 @@ $(function() {
           }
         }).catch(error => {
           $('#errorBanner').append(`<p>${error.response.data.msg}</p>`)
-        });
+        }); 
     }
 
     function Login(event){
@@ -64,5 +64,19 @@ $(function() {
         }).catch(error => {
           console.log(error);
         });  
+    }
+
+    function Delete(event){
+      event.preventDefault();
+      console.log('delete');
+      let username = $('#username').val();
+      console.log(username);
+      axios.delete('http://localhost:3000/account/'+username)
+      .then(response=> console.log(response))
+      .catch(error => console.log(error.response))
+    }
+
+    function showLogin(event){
+      console.log('HI')
     }
 });

@@ -92,6 +92,14 @@ router.post('/create', function (req, res) {
 
 });
 
+/* Method added for deleting accounts 
+Currently testing  */
+router.delete('/:username', function (req, res) {
+  const {username} = req.params;
+  accountStore.del(`users.${username}`);
+  res.send({status: `'${username}' deleted.`});
+});
+
 
 async function checkUser(username, password) {
   const user = accountStore.get(`users.${username}`);
