@@ -26,11 +26,14 @@ $(function() {
             setTimeout(function(){
               $('#errorBanner').empty()
               window.location.href = "survey.html";
-            }, 3000);
+            }, 1500);
             
           }
         }).catch(error => {
-          $('#errorBanner').append(`<p>${error.response.data.msg}</p>`)
+          $('#errorBanner').append(`<p>${error.response.data.msg}</p>`);
+          setTimeout(() => {
+            $('#errorBanner').empty()
+          }, 3000);
         }); 
     }
 
@@ -59,11 +62,14 @@ $(function() {
             })
             .then(response => console.log(response))
             .catch(error => console.log(error))
-            //window.location.href = "dashboard.html";
+            window.location.href = "dashboard.html";
           }
         }).catch(error => {
-          console.log(error);
-        });  
+          $('#errorBanner').append(`<p>${error.response.data.msg}</p>`);
+          setTimeout(() => {
+            $('#errorBanner').empty()
+          }, 3000);
+        })  
     }
 
     function Delete(event){
@@ -77,6 +83,30 @@ $(function() {
     }
 
     function showLogin(event){
-      console.log('HI')
+      event.preventDefault();
+      $('#signupBox').replaceWith(`<div id="loginBox" class="control content has-text-centered">
+      <button type="submit" class="button is-purple loginButton">
+          Login
+      </button>
+      <div id ="showSignup">
+          <a href="/#">Don't have an account? Create Account Here!</a>
+      </div>
+  </div>`);
+      $('#showSignup').click(showSignUp);
+      $('.loginButton').click(Login);
+    }
+
+    function showSignUp(event){
+      event.preventDefault();
+      $('#loginBox').replaceWith(`<div id="signupBox" class="control content has-text-centered">
+      <button type="submit" class="button is-purple loginButton">
+          Sign Up
+      </button>
+      <div id ="showLogin">
+        <a href="/#">Already have an account? Login Here!</a>
+      </div>
+  </div>`);
+      $('#showLogin').click(showLogin);
+      $('.signupButton').click(SignUp);
     }
 });

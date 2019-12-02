@@ -2,6 +2,12 @@
   "users": {
     "marisa1": {
       "passwordHash": "$2b$10$kBIB/Zv89zFEQnFjkdmbI.v46Sx8eZlasc1R20af2j4dlU/TWYQBC"
+    },
+    "testsignup": {
+      "passwordHash": "$2b$10$T3nuK.ClGkD.nopBWSS41uBibOhNoHWbhTWnWatDciClWAzjoAw2i"
+    },
+    "marisa": {
+      "passwordHash": "$2b$10$FApkww0DECuPI1qUdQeMO.INvw7DNjnB7VmlqzNqHHLMmv2Hyx0o6"
     }
   }
 }
