@@ -1,49 +1,66 @@
 import express from "express";
 import { authenticateUser } from "../middlewares/auth";
+import bcrypt from 'bcrypt';
+import { userFilter } from "../filters/user";
 import jwt from 'jsonwebtoken';
 
 export const router = express.Router();
 export const prefix = '/provider';
 
-
+const saltRounds = 10;
 
 const { providerStore } = require('../data/DataStore');
 
-//method to post provider
-async function postProv() {
+/**
+ * Given a name and pass, will create a user
+ * if one with that name doesn't exist in the
+ * database.
+ */
+router.post('/create', function (req, res) {
+    if (!req.body.name || !req.body.pass) {
+        res.status(401).send({ msg: 'Expected a payload of name and pass.' });
+        return;
+    }
 
-    const result = await axios({
-        method: 'post',
-        url: 'http://localhost:3000/' + prefix,
-        data: {
-            body: username
-        },
+    const name = req.body.name.toLowerCase();
+    const pass = req.body.pass;
+
+
+    let user = providerStore.get(`users.${name}`);
+    if (user) {
+        res.status(401).send({ msg: `User '${req.body.name}' is already a registered user.` });
+        return;
+    }
+
+    bcrypt.hash(pass, saltRounds, (err, hash) => {
+        providerStore.set(`users.${name}`, {
+            passwordHash: hash,
+            data: req.body.data
+        });
+        res.send({ data: userFilter(providerStore.get(`users.${name}`)), status: 'Successfully made account' });
     });
-    return result.data;
-}
 
-//router.post('/create', async function (req, res) {}
+});
 
-//router.postProv();
+/**
+ * This route requires a valid JWT token.
+ * This means that if you hit this route with a valid JWT then
+ * you will be given the user data. If not, then you know you
+ * know you are not logged in.
+ */
+router.get('/:username', authenticateUser, function (req, res) {
+    res.send(
+        {
+            user: {
+                name: req.user.name,
+                ...userFilter(providerStore.get(`users.${req.user.name}`))
+            }
+        }
+    );
+});
 
-//method to get provider with username input
 
-async function getOneProv() {
-    // http request to get tweets
-    const result = await axios({
-        method: 'get',
-        url: 'http://localhost:3000/' + prefix,
-    });
-    return result.data;
-}
-
-//method to get all providers 
-
-async function getAllProv() {
-    // http request to get tweets
-    const result = await axios({
-        method: 'get',
-        url: 'http://localhost:3000/' + prefix,
-    });
-    return result.data;
+async function checkUser(username, password) {
+    const user = accountStore.get(`users.${username}`);
+    return await bcrypt.compare(password, user.passwordHash);
 }
