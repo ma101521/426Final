@@ -3,6 +3,9 @@ import { authenticateUser } from "../middlewares/auth";
 import bcrypt from 'bcrypt';
 import { userFilter } from "../filters/user";
 import jwt from 'jsonwebtoken';
+import {parseGet} from "../middlewares/parse_get";
+import {parsePost} from "../middlewares/parse_post";
+import {parseDelete} from "../middlewares/parse_delete";
 
 export const router = express.Router();
 export const prefix = '/provider';
@@ -16,51 +19,46 @@ const { providerStore } = require('../data/DataStore');
  * if one with that name doesn't exist in the
  * database.
  */
-router.post('/create', function (req, res) {
-    if (!req.body.name || !req.body.pass) {
-        res.status(401).send({ msg: 'Expected a payload of name and pass.' });
+router.post('/create', async function (req, res) {
+    if (!req.body.name) {
+        res.status(401).send({ msg: 'Expected a payload of name.' });
         return;
     }
-
     const name = req.body.name.toLowerCase();
-    const pass = req.body.pass;
-
-
-    let user = providerStore.get(`users.${name}`);
-    if (user) {
-        res.status(401).send({ msg: `User '${req.body.name}' is already a registered user.` });
-        return;
-    }
-
-    bcrypt.hash(pass, saltRounds, (err, hash) => {
-        providerStore.set(`users.${name}`, {
-            passwordHash: hash,
-            data: req.body.data
-        });
-        res.send({ data: userFilter(providerStore.get(`users.${name}`)), status: 'Successfully made account' });
+    providerStore.set(`users.${name}`, {
+        //passwordHash: hash,
+        data: req.body.data,
+        drName: req.body.DrName,
+        phone: req.body.phone,
+        address: req.body.address,
+        q1: req.body.q1,
+        q2: req.body.q2,
+        q3: req.body.q3,
+        q4: req.body.q4,
+        q5: req.body.q5,
+        q6: req.body.q6,
+        q7: req.body.q7,
+        q8: req.body.q8,
+        q9: req.body.q9,
+        q10: req.body.q10,
+        q11: req.body.q11,
+        q12: req.body.q12
     });
+    console.log(req);
+    res.send({ data: userFilter(providerStore.get(`users.${name}`)), status: 'Successfully made account' });
 
 });
 
-/**
- * This route requires a valid JWT token.
- * This means that if you hit this route with a valid JWT then
- * you will be given the user data. If not, then you know you
- * know you are not logged in.
- */
-router.get('/:username', authenticateUser, function (req, res) {
-    res.send(
-        {
-            user: {
-                name: req.user.name,
-                ...userFilter(providerStore.get(`users.${req.user.name}`))
-            }
-        }
-    );
+
+
+router.get('/*', parseGet, function (req, res) {
+    const result = req.handleGet(providerStore);
+    if (typeof result !== 'undefined') {
+        res.send({ result })
+    }
 });
 
-
-async function checkUser(username, password) {
-    const user = accountStore.get(`users.${username}`);
+/* async function checkUser(username, password) {
+    const user = providerStore.get(`users.${username}`);
     return await bcrypt.compare(password, user.passwordHash);
-}
+} */

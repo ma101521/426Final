@@ -23,14 +23,6 @@ router.post('/create', async function (req, res) {
         return;
     }
     const name = req.body.name.toLowerCase();
-    //const pass = req.body.pass;
-
-    // let user = patientStore.get(`users.${name}`);
-    // if (user) {
-    //     res.status(401).send({ msg: `User '${req.body.name}' is already a registered user.` });
-    //     return;
-    // }
-    // bcrypt.hash(pass, saltRounds, (err, hash) => {
         patientStore.set(`users.${name}`, {
             //passwordHash: hash,
             data: req.body.data,
@@ -53,14 +45,6 @@ router.post('/create', async function (req, res) {
 });
 
 
-//method to get patient with username input
-
-/* router.get('/:username', parseGet, function (req, res) {
-    const result = req.handleGet(patientStore);
-    if (typeof result !== 'undefined') {
-        res.send({ result })
-    }
-}); */
 
 router.get('/:username', function (req, res) {
     const {username} = req.params;
