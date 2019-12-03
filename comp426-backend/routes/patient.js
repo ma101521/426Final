@@ -4,7 +4,9 @@ import { parseGet } from "../middlewares/parse_get";
 import { parsePost } from "../middlewares/parse_post";
 import jwt from 'jsonwebtoken';
 import { userFilter } from "../filters/user";
+import bcrypt from 'bcrypt';
 
+const saltRounds = 10;
 
 export const router = express.Router();
 export const prefix = '/patient';
@@ -15,7 +17,7 @@ const { patientStore } = require('../data/DataStore');
 //method to post patient
 //router.post('/create', async function (req, res) {}
 
-router.post('/create', function (req, res) {
+router.post('/create', async function (req, res) {
     if (!req.body.name || !req.body.pass) {
         res.status(401).send({ msg: 'Expected a payload of name and pass.' });
         return;
@@ -35,7 +37,7 @@ router.post('/create', function (req, res) {
             passwordHash: hash,
             data: req.body.data
         });
-        res.send({ data: userFilter(patinetStore.get(`users.${name}`)), status: 'Successfully made account' });
+        res.send({ data: userFilter(patientStore.get(`users.${name}`)), status: 'Successfully made account' });
     });
 });
 

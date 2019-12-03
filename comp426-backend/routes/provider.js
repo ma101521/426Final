@@ -24,7 +24,7 @@ async function postProv() {
 
 //router.post('/create', async function (req, res) {}
 
-router.postProv();
+//router.postProv();
 
 //method to get provider with username input
 
