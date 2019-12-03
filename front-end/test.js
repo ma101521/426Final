@@ -17,8 +17,20 @@ $(function() {
         if(type == 'patient'){
             axios.post('http://localhost:3000/patient/create',
             {
-            name: 'username',
-            pass: 'password'
+                name: $('#username').val(),
+                q1: $('input[name="What is your gender?"]:checked').val(),
+                q2: $('input[name="Which of the following statements describe you. Please check all that apply."]:checked').val(),
+                q3: $('input[name="What topics are you interested in learning more about? Please check all that apply."]:checked').val(),
+                q4: $('input[name="I like routine."]:checked').val(),
+                q5: $('input[name="I like structure."]:checked').val(),
+                q6: $('input[name="I am a perfectionist."]:checked').val(),
+                q7: $('input[name="It’s important for me and my family to achieve health ideals."]:checked').val(),
+                q8: $('input[name="I am a perfectionist."]:checked').val(),
+                q9: $('input[name="My family’s overall well-being is more important to me than achieving specific health ideals."]:checked').val(),
+                q10:$('#family').val(),
+                q11:$('#advice').val(),
+                q12:$('#meal').val()
+                
             })
             .then(response=> console.log(response))
             .catch(error=> console.log(error))
