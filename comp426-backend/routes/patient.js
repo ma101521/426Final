@@ -55,11 +55,17 @@ router.post('/create', async function (req, res) {
 
 //method to get patient with username input
 
-router.get('/:username', parseGet, function (req, res) {
+/* router.get('/:username', parseGet, function (req, res) {
     const result = req.handleGet(patientStore);
     if (typeof result !== 'undefined') {
         res.send({ result })
     }
+}); */
+
+router.get('/:username', function (req, res) {
+    const {username} = req.params;
+    //let user = patientStore.get(`users.${username}`);
+    res.send({data: userFilter(patientStore.get(`users.${username}`)), status: 'Successfully found user'});
 });
 
 

@@ -8,7 +8,16 @@ $(function() {
     $('#patientRadio').on("change", function(){
         $('#providerForm').hide()
     })
+    $('#getUser').click(getUser);
 
+    function getUser(event){
+        event.preventDefault();
+        console.log('work');
+        let username = $('#username').val();
+        axios.get('http://localhost:3000/patient/'+username,)
+        .then(response=> console.log(response))
+        .catch(error => console.log(error.response))
+    }
 
     function create(event){
         event.preventDefault();
