@@ -1,4 +1,5 @@
 import express from "express";
+import {parseGet} from "../middlewares/parse_get";
 import {authenticateUser} from "../middlewares/auth";
 import jwt from 'jsonwebtoken';
 import { parseGet } from "../middlewares/parse_get";
