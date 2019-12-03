@@ -22,7 +22,7 @@
                     <div class="box">
                         <h4 class = "subtitle has-text-weight-bold">I am a ...</h4>
                         <hr class="is-blue">
-                        <div class="control">
+                        <div class="control" id="q1">
                             <input type="radio" name="I am a" value="patient" class="radio">Patient<br>
                             <input type="radio" name="I am a" value="provider" class="radio">Provider<br>
                         </div>    
@@ -221,11 +221,15 @@
                 <hr>
                 <div class="control content has-text-centered">
                     <button class="button is-purple"><a href="dashboard.html">Cancel</a></button>
-                    <button type="submit" class="button is-purple"><a href="dashboard.html">Submit</a></button>
+                    <button type="submit" class="button is-purple" id="submitbutton"><a href="dashboard.html">Submit</a></button>
                 </div>
                 <hr>
             </form>
         </div>
         <footer class="footer is-purple"></footer>
+        <!--Scripts-->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="node_modules/axios/dist/axios.js"></script>
+        <script src="test.js"></script>
     </body>
 </html>
