@@ -18,13 +18,25 @@
         </div>
         <div id="Survey">
             <form>
+                <div class="test">
+                    Test Username here
+                    <input class="input" id="username" type = "username" placeholder="Username for testing" required><br>
+                </div>
                 <div class = "question">
                     <div class="box">
                         <h4 class = "subtitle has-text-weight-bold">I am a ...</h4>
                         <hr class="is-blue">
                         <div class="control" id="q1">
-                            <input type="radio" name="I am a" value="patient" class="radio">Patient<br>
-                            <input type="radio" name="I am a" value="provider" class="radio">Provider<br>
+                            <input type="radio" name="I am a" value="patient" class="radio" id="patientRadio">Patient<br>
+                            <input type="radio" name="I am a" value="provider" class="radio" id="providerRadio">Provider<br>
+                                <div class="content has-text-centered" hidden id="providerForm">
+                                    <form class="providerForm">
+                                        <input class="input" id="providerName" type = "text" placeholder="Doctor's Name" required><br>
+                                        <input class="input" id="providerPhone" type="text" placeholder="Phone" required><br>
+                                        <input class="input" id="providerAddress" type="text" placeholder="Address" required>
+                                        <hr>
+                                    </form>
+                                </div>
                         </div>    
                     </div>                   
                 </div>

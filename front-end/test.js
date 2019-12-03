@@ -2,6 +2,12 @@
 $(function() {
 
     $('#submitbutton').click(create);
+    $('#providerRadio').on("change", function(){
+        $('#providerForm').show()
+    })
+    $('#patientRadio').on("change", function(){
+        $('#providerForm').hide()
+    })
 
 
     function create(event){
