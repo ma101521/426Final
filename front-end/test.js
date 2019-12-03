@@ -20,9 +20,8 @@ $(function() {
         else{
             axios.post('http://localhost:3000/provider/create',
             {
-            data: {
-                body: 'username'
-            }
+            name: 'username',
+            pass: 'password'
             })
             .then(response=> console.log(reponse))
             .catch(error=> console.log(error))
