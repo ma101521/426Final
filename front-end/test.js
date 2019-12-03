@@ -23,7 +23,7 @@ $(function() {
             name: 'username',
             pass: 'password'
             })
-            .then(response=> console.log(reponse))
+            .then(response=> console.log(response))
             .catch(error=> console.log(error))
         }
     }
