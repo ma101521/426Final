@@ -3,9 +3,9 @@ import { authenticateUser } from "../middlewares/auth";
 import bcrypt from 'bcrypt';
 import { userFilter } from "../filters/user";
 import jwt from 'jsonwebtoken';
-import {parseGet} from "../middlewares/parse_get";
-import {parsePost} from "../middlewares/parse_post";
-import {parseDelete} from "../middlewares/parse_delete";
+import { parseGet } from "../middlewares/parse_get";
+import { parsePost } from "../middlewares/parse_post";
+import { parseDelete } from "../middlewares/parse_delete";
 
 export const router = express.Router();
 export const prefix = '/provider';
@@ -44,21 +44,21 @@ router.post('/create', async function (req, res) {
         q11: req.body.q11,
         q12: req.body.q12
     });
-    console.log(req);
+    //console.log(req);
     res.send({ data: userFilter(providerStore.get(`users.${name}`)), status: 'Successfully made account' });
 
 });
 
-
-
-router.get('/*', parseGet, function (req, res) {
+/*router.get('/*', parseGet, function (req, res) {
     const result = req.handleGet(providerStore);
     if (typeof result !== 'undefined') {
         res.send({ result })
     }
-});
+});*/
 
-/* async function checkUser(username, password) {
-    const user = providerStore.get(`users.${username}`);
-    return await bcrypt.compare(password, user.passwordHash);
-} */
+router.get('/all', function (req, res) {
+    //let user = patientStore.get(`users.${username}`);
+    //console.log("hello");
+    //console.log(providerStore);
+    res.send({ data: providerStore.get(`users`), status: 'Successfully found all' });
+});
