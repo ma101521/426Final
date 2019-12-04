@@ -9,7 +9,11 @@ $(function() {
         $('#providerForm').hide()
     })
     $('#getUser').click(getUser);
+    $('#getProviders').click(getAllProviders);
 
+    function getAllProviders(event){
+        
+    }
     function getUser(event){
         event.preventDefault();
         console.log('work');
@@ -27,7 +31,7 @@ $(function() {
                 describeYou.push($(this).val());
             });
         let topics = [];
-        $.each($('input[name="What topics are you interested in learning more about? Please check all that apply.]:checked'), function(){
+        $.each($('input[name="What topics are you interested in learning more about? Please check all that apply."]:checked'), function(){
             topics.push($(this).val());
         });
         let type = $('input[name="I am a"]:checked').val();
