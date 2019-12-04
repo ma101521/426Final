@@ -37,7 +37,7 @@ router.post('/create', authenticateUser, function (req, res) {
         q12: req.body.q12
     });
     //console.log(req);
-    res.send({ data: userFilter(providerStore.get(`users.${username}`)), status: 'Successfully made provider' });
+    res.send({ data: userFilter(providerStore.get(`users.${username}`)), type: "merge", status: 'Successfully made provider' });
 
 });
 
