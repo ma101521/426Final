@@ -3,6 +3,9 @@
 
 $(function() {
     //test loading
+
+    let token = localStorage.getItem('jwt');
+    console.log(token);
     $('.signupButton').click(SignUp);
     $('.loginButton').click(Login);
     $('.deletButton').click(Delete);
@@ -11,6 +14,7 @@ $(function() {
     function SignUp(event){
         event.preventDefault();
 
+        //console.log(token);
         let username = $('#username').val();
         let password = $('#password').val();
 
@@ -39,7 +43,7 @@ $(function() {
 
     function Login(event){
       event.preventDefault();
-
+        //console.log(token);
         let username = $('#username').val();
         let password = $('#password').val();
 
@@ -51,8 +55,9 @@ $(function() {
         .then(response => {
           console.log(response.status);
           if(response.status === 200){
-            console.log(response.data.jwt)
+            //console.log(response.data.jwt)
             let jwt = response.data.jwt;
+            localStorage.setItem('jwt', jwt);
             axios.get('http://localhost:3000/account/status',
             {
               headers: {
