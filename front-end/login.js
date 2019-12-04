@@ -5,7 +5,7 @@ $(function() {
     //test loading
 
     let token = localStorage.getItem('jwt');
-    console.log(token);
+    //console.log(token);
     $('.signupButton').click(SignUp);
     $('.loginButton').click(Login);
     $('.deletButton').click(Delete);
@@ -25,11 +25,25 @@ $(function() {
         })
         .then(response => {
           if(response.status === 200){
+            axios.post('http://localhost:3000/account/login',
+            {
+              name: username,
+              pass: password
+            })
+            .then(response => {
+              if(response.status === 200){
+                console.log(response)
+                console.log(response.data.jwt)
+                let jwt = response.data.jwt;
+                localStorage.setItem('jwt', jwt);
+              }
+            })
+            .catch(error => console.log(error))
             $('#errorBanner').empty();
             $('#errorBanner').append(`<p>Successfully made account!</p>`);
             setTimeout(function(){
               $('#errorBanner').empty()
-              window.location.href = "survey.html";
+              //window.location.href = "survey.html";
             }, 1500);
             
           }
