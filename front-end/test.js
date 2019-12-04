@@ -17,7 +17,12 @@ $(function () {
         event.preventDefault();
         console.log('hellooooo');
         //let username = $('#username').val();
-        axios.get('http://localhost:3000/provider/all')
+        axios.get('http://localhost:3000/provider/all',
+        {
+        headers: {
+            //jwt is the jwt from logging in
+            "Authorization": "Bearer " + jwt
+        }})
             .then(response => console.log(response))
             .catch(error => console.log(error.response))
     }
