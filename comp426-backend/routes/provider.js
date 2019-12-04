@@ -1,11 +1,6 @@
 import express from "express";
 import { authenticateUser } from "../middlewares/auth";
-import bcrypt from 'bcrypt';
 import { userFilter } from "../filters/user";
-import jwt from 'jsonwebtoken';
-import { parseGet } from "../middlewares/parse_get";
-import { parsePost } from "../middlewares/parse_post";
-import { parseDelete } from "../middlewares/parse_delete";
 
 export const router = express.Router();
 export const prefix = '/provider';
@@ -19,13 +14,10 @@ const { providerStore } = require('../data/DataStore');
  * if one with that name doesn't exist in the
  * database.
  */
-router.post('/create', async function (req, res) {
-    if (!req.body.name) {
-        res.status(401).send({ msg: 'Expected a payload of name.' });
-        return;
-    }
-    const name = req.body.name.toLowerCase();
-    providerStore.set(`users.${name}`, {
+router.post('/create', authenticateUser, function (req, res) {
+
+    const username = req.user.name;
+    providerStore.set(`users.${username}`, {
         //passwordHash: hash,
         data: req.body.data,
         drName: req.body.DrName,
@@ -45,20 +37,11 @@ router.post('/create', async function (req, res) {
         q12: req.body.q12
     });
     //console.log(req);
-    res.send({ data: userFilter(providerStore.get(`users.${name}`)), status: 'Successfully made account' });
+    res.send({ data: userFilter(providerStore.get(`users.${username}`)), status: 'Successfully made provider' });
 
 });
 
-/*router.get('/*', parseGet, function (req, res) {
-    const result = req.handleGet(providerStore);
-    if (typeof result !== 'undefined') {
-        res.send({ result })
-    }
-});*/
 
-router.get('/all', function (req, res) {
-    //let user = patientStore.get(`users.${username}`);
-    //console.log("hello");
-    //console.log(providerStore);
+router.get('/all', authenticateUser, function (req, res) {
     res.send({ data: providerStore.get(`users`), status: 'Successfully found all' });
 });

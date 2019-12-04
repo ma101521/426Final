@@ -76,9 +76,14 @@ $(function () {
             let drName = $('#providerName').val();
             let phone = $('#providerPhone').val();
             let address = $('#providerAddress').val();
-            axios.post('http://localhost:3000/provider/create',
-                {
-                    name: $('#username').val(),
+            axios({
+                method: 'post',
+                url: 'http://localhost:3000/provider/create',
+                headers: {
+                    //jwt is the jwt from logging in
+                    "Authorization": "Bearer " + jwt
+                },
+                data:{
                     drName: drName,
                     phone: phone,
                     address: address,
@@ -94,9 +99,10 @@ $(function () {
                     q10: $('#q9').val(),
                     q11: $('#q10').val(),
                     q12: $('#q11').val()
-                })
-                .then(response => console.log(response))
-                .catch(error => console.log(error))
+                },
+            })
+            .then(response => console.log(response))
+            .catch(error => console.log(error))
         }
     }
 })

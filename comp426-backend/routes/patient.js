@@ -37,7 +37,7 @@ router.post('/create', authenticateUser, function (req, res) {
             q12: req.body.q12
         });
         //console.log(req);
-        res.send({ data: userFilter(patientStore.get(`users.${username}`)), status: 'Successfully made survey response' });
+        res.send({ data: userFilter(patientStore.get(`users.${username}`)), status: 'Successfully made patient' });
     // });
 });
 
@@ -45,7 +45,6 @@ router.post('/create', authenticateUser, function (req, res) {
 
 router.get('/user', authenticateUser, function (req, res) {
     const username = req.user.name;
-    //let user = patientStore.get(`users.${username}`);
     res.send({data: patientStore.get(`users.${username}`), status: 'Successfully found user '+username});
 });
 
