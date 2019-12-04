@@ -20,7 +20,7 @@ router.post('/create', authenticateUser, function (req, res) {
     providerStore.set(`users.${username}`, {
         //passwordHash: hash,
         data: req.body.data,
-        drName: req.body.DrName,
+        drName: req.body.drName,
         phone: req.body.phone,
         address: req.body.address,
         q1: req.body.q1,
