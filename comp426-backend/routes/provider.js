@@ -20,7 +20,7 @@ router.post('/create', authenticateUser, function (req, res) {
     providerStore.set(`users.${username}`, {
         //passwordHash: hash,
         data: req.body.data,
-        drName: req.body.DrName,
+        drName: req.body.drName,
         phone: req.body.phone,
         address: req.body.address,
         q1: req.body.q1,
@@ -37,7 +37,7 @@ router.post('/create', authenticateUser, function (req, res) {
         q12: req.body.q12
     });
     //console.log(req);
-    res.send({ data: userFilter(providerStore.get(`users.${username}`)), status: 'Successfully made provider' });
+    res.send({ data: userFilter(providerStore.get(`users.${username}`)), type: "merge", status: 'Successfully made provider' });
 
 });
 
