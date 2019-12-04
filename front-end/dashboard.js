@@ -20,9 +20,6 @@ $(function(){
     }
 
     function getAllProviders(event) {
-        event.preventDefault();
-        //console.log('hellooooo');
-        //let username = $('#username').val();
         axios.get('http://localhost:3000/provider/all',
         {
         headers: {
