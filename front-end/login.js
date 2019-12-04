@@ -43,7 +43,7 @@ $(function() {
             $('#errorBanner').append(`<p>Successfully made account!</p>`);
             setTimeout(function(){
               $('#errorBanner').empty()
-              //window.location.href = "survey.html";
+              window.location.href = "survey.html";
             }, 1500);
             
           }
