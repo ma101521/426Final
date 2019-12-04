@@ -24,8 +24,6 @@ $(function () {
 
     function getUser(event) {
         event.preventDefault();
-        //console.log('work');
-        //let username = $('#username').val();
         axios.get('http://localhost:3000/patient/user',
         {
             headers: {
@@ -39,7 +37,6 @@ $(function () {
 
     function create(event) {
         event.preventDefault();
-        //console.log('hi');
         let describeYou = [];
         $.each($('input[name="Which of the following statements describe you. Please check all that apply."]:checked'), function () {
             describeYou.push($(this).val());
