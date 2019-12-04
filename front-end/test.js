@@ -26,7 +26,10 @@ $(function() {
             $.each($('input[name="Which of the following statements describe you. Please check all that apply."]:checked'), function(){
                 describeYou.push($(this).val());
             });
-        console.log(describeYou);
+        let topics = [];
+        $.each($('input[name="What topics are you interested in learning more about? Please check all that apply.]:checked'), function(){
+            topics.push($(this).val());
+        });
         let type = $('input[name="I am a"]:checked').val();
         if(type == 'patient'){
             axios.post('http://localhost:3000/patient/create',
@@ -34,7 +37,7 @@ $(function() {
                 name: $('#username').val(),
                 q1: $('input[name="What is your gender?"]:checked').val(),
                 q2: describeYou,
-                q3: $('input[name="What topics are you interested in learning more about? Please check all that apply."]:checked').val(),
+                q3: topics,
                 q4: $('input[name="I like routine."]:checked').val(),
                 q5: $('input[name="I like structure."]:checked').val(),
                 q6: $('input[name="I am a perfectionist."]:checked').val(),
@@ -61,7 +64,7 @@ $(function() {
                 address: address,
                 q1: $('input[name="What is your gender?"]:checked').val(),
                 q2: describeYou,
-                q3: $('input[name="What topics are you interested in learning more about? Please check all that apply."]:checked').val(),
+                q3: topics,
                 q4: $('input[name="I like routine."]:checked').val(),
                 q5: $('input[name="I like structure."]:checked').val(),
                 q6: $('input[name="I am a perfectionist."]:checked').val(),
