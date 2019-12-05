@@ -11,9 +11,9 @@
 function geocode(platform) {
     var geocoder = platform.getGeocodingService(),
       geocodingParameters = {
-        housenumber: '425',
-        street: 'randolph',
-        city: 'chicago',
+        housenumber: '409',
+        street: 'swann',
+        city: 'clayton',
         country: 'usa',
         jsonattributes : 1
       };
@@ -54,13 +54,35 @@ function geocode(platform) {
    * Boilerplate map initialization code starts below:
    */
   
-  //Step 1: initialize communication with the platform
-  // In your own code, replace variable window.apikey with your own apikey
-  var platform = new H.service.Platform({
-    apikey: window.apikey
-  });
-  var defaultLayers = platform.createDefaultLayers();
+  //initialize communication with the platform
   
+
+
+
+  //THIS MAKES A MAP.
+  var platform = new H.service.Platform({
+    apikey: 'l1Lu-8FedQeEX8DEyatsDvHtips48kEmWgPt9OL0Rrs'
+  });
+  var platformz = new H.service.Platform({
+    apikey: 'l1Lu-8FedQeEX8DEyatsDvHtips48kEmWgPt9OL0Rrs'
+  });
+  var defaultLayers = platformz.createDefaultLayers();
+  
+  
+  var map = new H.Map(
+    document.getElementById('mapContainer'),
+    defaultLayers.vector.normal.map,
+    {
+      zoom: 10,
+      center: { lat: 52.5, lng: 13.4 }
+    });
+    //this is the end of a static map
+
+
+    //var loc = axios.get('https://geocoder.api.here.com/6.2/geocode.json?app_id=H6wTrdiefSx3FqWg58xt&app_code=N16Y78cWFGanfmUczs7_Cg&searchtext=425+W+Randolph+Chicago');
+  
+
+
   //Step 2: initialize a map - this map is centered over California
   var map = new H.Map(document.getElementById('map'),
     defaultLayers.vector.normal.map,{
@@ -76,6 +98,7 @@ function geocode(platform) {
   //Step 3: make the map interactive
   // MapEvents enables the event system
   // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+  
   var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
   
   // Create the default UI components
@@ -89,6 +112,8 @@ function geocode(platform) {
    * @param  {H.geo.Point} position     The location on the map.
    * @param  {String} text              The contents of the infobubble.
    */
+
+   
   function openBubble(position, text){
    if(!bubble){
       bubble =  new H.ui.InfoBubble(
@@ -107,6 +132,9 @@ function geocode(platform) {
    * @param {Object[]} locations An array of locations as received from the
    *                             H.service.GeocodingService
    */
+
+
+   
   function addLocationsToPanel(locations){
   
     var nodeOL = document.createElement('ul'),
@@ -121,29 +149,20 @@ function geocode(platform) {
        var li = document.createElement('li'),
           divLabel = document.createElement('div'),
           address = locations[i].location.address,
-          content =  '' + address.label  + '
-  ';
+          content =  '' + address.label  + '';
           position = {
             lat: locations[i].location.displayPosition.latitude,
             lng: locations[i].location.displayPosition.longitude
           };
   
-        content += 'houseNumber: ' + address.houseNumber + '
-  ';
-        content += 'street: '  + address.street + '
-  ';
-        content += 'district: '  + address.district + '
-  ';
-        content += 'city: ' + address.city + '
-  ';
-        content += 'postalCode: ' + address.postalCode + '
-  ';
-        content += 'county: ' + address.county + '
-  ';
-        content += 'country: ' + address.country + '
-  ';
-        content += '
-  position: ' +
+        content += 'houseNumber: ' + address.houseNumber + '';
+        content += 'street: '  + address.street + '';
+        content += 'district: '  + address.district + '';
+        content += 'city: ' + address.city + '';
+        content += 'postalCode: ' + address.postalCode + '';
+        content += 'county: ' + address.county + '';
+        content += 'country: ' + address.country + '';
+        content += 'position: ' +
           Math.abs(position.lat.toFixed(4)) + ((position.lat > 0) ? 'N' : 'S') +
           ' ' + Math.abs(position.lng.toFixed(4)) + ((position.lng > 0) ? 'E' : 'W');
   
@@ -162,6 +181,8 @@ function geocode(platform) {
    * @param {Object[]} locations An array of locations as received from the
    *                             H.service.GeocodingService
    */
+
+   
   function addLocationsToMap(locations){
     var group = new  H.map.Group(),
       position,
@@ -193,3 +214,6 @@ function geocode(platform) {
   
   // Now use the map as required...
   geocode(platform);
+  geocode(platform);
+
+  
