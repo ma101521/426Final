@@ -6,8 +6,9 @@
  * A full list of available request parameters can be found in the Geocoder API documentation.
  * see: http://developer.here.com/rest-apis/documentation/geocoder/topics/resource-geocode.html
  *
- * @param   {H.service.Platform} platform    A stub class to access HERE services
+ *@param   {H.service.Platform} platform    A stub class to access HERE services
  */
+
 function geocode(platform) {
     var geocoder = platform.getGeocodingService(),
       geocodingParameters = {
@@ -24,6 +25,7 @@ function geocode(platform) {
       onError
     );
   }
+  
   /**
    * This function will be called once the Geocoder REST API provides a response
    * @param  {Object} result          A JSONP object representing the  location(s) found.
@@ -56,19 +58,18 @@ function geocode(platform) {
   
   //initialize communication with the platform
   
-
+ var platform = new H.service.Platform({
+    apikey: 'l1Lu-8FedQeEX8DEyatsDvHtips48kEmWgPt9OL0Rrs'
+  });
 
 
   //THIS MAKES A MAP.
-  var platform = new H.service.Platform({
-    apikey: 'l1Lu-8FedQeEX8DEyatsDvHtips48kEmWgPt9OL0Rrs'
-  });
   var platformz = new H.service.Platform({
     apikey: 'l1Lu-8FedQeEX8DEyatsDvHtips48kEmWgPt9OL0Rrs'
   });
   var defaultLayers = platformz.createDefaultLayers();
   
-  
+  //do not name the div id "map" for some reason it hates that
   var map = new H.Map(
     document.getElementById('mapContainer'),
     defaultLayers.vector.normal.map,
@@ -79,17 +80,15 @@ function geocode(platform) {
     //this is the end of a static map
 
 
-    //var loc = axios.get('https://geocoder.api.here.com/6.2/geocode.json?app_id=H6wTrdiefSx3FqWg58xt&app_code=N16Y78cWFGanfmUczs7_Cg&searchtext=425+W+Randolph+Chicago');
-  
-
-
   //Step 2: initialize a map - this map is centered over California
-  var map = new H.Map(document.getElementById('map'),
-    defaultLayers.vector.normal.map,{
-    center: {lat:37.376, lng:-122.034},
-    zoom: 15,
-    pixelRatio: window.devicePixelRatio || 1
-  });
+  var map = new H.Map(
+    document.getElementById('mappy'),
+    defaultLayers.vector.normal.map,
+    {
+      center: {lat:37.376, lng:-122.034},
+      zoom: 15
+    //pixelRatio: window.devicePixelRatio || 1
+    });
   // add a resize listener to make sure that the map occupies the whole container
   window.addEventListener('resize', () => map.getViewPort().resize());
   
