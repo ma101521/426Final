@@ -12,9 +12,10 @@
 function geocode(platform) {
     var geocoder = platform.getGeocodingService(),
       geocodingParameters = {
-        housenumber: '409',
-        street: 'swann',
-        city: 'clayton',
+        housenumber: '201',
+        street: 's columbia',
+        city: 'chapel hill',
+        postalcode: '27514',
         country: 'usa',
         jsonattributes : 1
       };
@@ -52,47 +53,42 @@ function geocode(platform) {
     alert('Can\'t reach the remote server');
   }
   
-  /**
-   * Boilerplate map initialization code starts below:
-   */
-  
   //initialize communication with the platform
-  
+
  var platform = new H.service.Platform({
     apikey: 'l1Lu-8FedQeEX8DEyatsDvHtips48kEmWgPt9OL0Rrs'
   });
-
-
+  var defaultLayers = platform.createDefaultLayers();
+ 
+ /*
   //THIS MAKES A MAP.
-  var platformz = new H.service.Platform({
+ var platform = new H.service.Platform({
     apikey: 'l1Lu-8FedQeEX8DEyatsDvHtips48kEmWgPt9OL0Rrs'
   });
-  var defaultLayers = platformz.createDefaultLayers();
-  
-  //do not name the div id "map" for some reason it hates that
-  var map = new H.Map(
-    document.getElementById('mapContainer'),
-    defaultLayers.vector.normal.map,
-    {
-      zoom: 10,
-      center: { lat: 52.5, lng: 13.4 }
-    });
-    //this is the end of a static map
+var defaultLayers = platform.createDefaultLayers();
+var map = new H.Map(
+  document.getElementById('mapContainer'),
+  defaultLayers.vector.normal.map,
+  {
+    zoom: 10,
+    center: { lat: 52.5, lng: 13.4 }
+  });
+  //this is the end of a static map
+  //map does not like to load unless the style for width/height is defined
+*/
 
-
-  //Step 2: initialize a map - this map is centered over California
+  //Initialize map
   var map = new H.Map(
     document.getElementById('mappy'),
     defaultLayers.vector.normal.map,
     {
-      center: {lat:37.376, lng:-122.034},
-      zoom: 15
-    //pixelRatio: window.devicePixelRatio || 1
+      center: {lat:35.780, lng:-78.538},
+      zoom: 50,
     });
   // add a resize listener to make sure that the map occupies the whole container
-  window.addEventListener('resize', () => map.getViewPort().resize());
+  //window.addEventListener('resize', () => map.getViewPort().resize());
   
-  var locationsContainer = document.getElementById('panel');
+  //var locationsContainer = document.getElementById('panel');
   
   //Step 3: make the map interactive
   // MapEvents enables the event system
@@ -133,7 +129,7 @@ function geocode(platform) {
    */
 
 
-   
+   /*
   function addLocationsToPanel(locations){
   
     var nodeOL = document.createElement('ul'),
@@ -173,6 +169,7 @@ function geocode(platform) {
   
     locationsContainer.appendChild(nodeOL);
   }
+  */
   
   
   /**
@@ -181,7 +178,7 @@ function geocode(platform) {
    *                             H.service.GeocodingService
    */
 
-   
+  
   function addLocationsToMap(locations){
     var group = new  H.map.Group(),
       position,
@@ -211,8 +208,11 @@ function geocode(platform) {
     });
   }
   
+  
   // Now use the map as required...
   geocode(platform);
-  geocode(platform);
 
+
+
+  
   
