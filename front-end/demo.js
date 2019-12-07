@@ -7,9 +7,14 @@
  */
  
 var mapID
- //
+
+ //initialize communication with the platform
+ var platform = new H.service.Platform({
+  apikey: 'l1Lu-8FedQeEX8DEyatsDvHtips48kEmWgPt9OL0Rrs'
+});
+var defaultLayers = platform.createDefaultLayers();
+
  function getMap(houseNum, streetName, zipCode, mapID) {
-    mapID = ID;
     var geocoder = platform.getGeocodingService(),
       geocodingParameters = {
         housenumber: houseNum,
@@ -23,7 +28,7 @@ var mapID
       onSuccess,
       onError
     );
- }
+// }
 
   
   /**
@@ -40,7 +45,7 @@ var mapID
     * in the functions below:
     */
     addLocationsToMap(locations);
-    addLocationsToPanel(locations);
+    //addLocationsToPanel(locations);
     // ... etc.
   }
   
@@ -51,13 +56,6 @@ var mapID
   function onError(error) {
     alert('Can\'t reach the remote server');
   }
-  
-  //initialize communication with the platform
-
- var platform = new H.service.Platform({
-    apikey: 'l1Lu-8FedQeEX8DEyatsDvHtips48kEmWgPt9OL0Rrs'
-  });
-  var defaultLayers = platform.createDefaultLayers();
  
  /*
   //THIS MAKES A MAP.
@@ -75,7 +73,7 @@ var map = new H.Map(
   //this is the end of a static map
   //map does not like to load unless the style for width/height is defined
 */
-getMap('201', 's columbia', '27514', 'mappy');
+//getMap('201', 's columbia', '27514', 'mappy');
   //Initialize map
   var map = new H.Map(
     document.getElementById(mapID),
@@ -128,7 +126,7 @@ getMap('201', 's columbia', '27514', 'mappy');
    */
 
 
-   
+   /*
   function addLocationsToPanel(locations){
   
     var nodeOL = document.createElement('ul'),
@@ -166,8 +164,9 @@ getMap('201', 's columbia', '27514', 'mappy');
         nodeOL.appendChild(li);
     }
   
-    locationsContainer.appendChild(nodeOL);
+    //locationsContainer.appendChild(nodeOL);
   }
+  */
   
   
   
@@ -203,6 +202,13 @@ getMap('201', 's columbia', '27514', 'mappy');
          evt.target.getGeometry(), evt.target.label);
     }, false);
   
+    //add Chapel Hill as starting marker
+    marker = new H.map.Marker({lat:35.913, lng:-79.056});
+    marker.label = "Chapel Hill";
+
+    // Add the marker to the group (which causes it to be displayed on the map)
+    group.addObject(marker);
+
     // Add the locations group to the map
     map.addObject(group);
     map.getViewModel().setLookAtData({
@@ -211,8 +217,9 @@ getMap('201', 's columbia', '27514', 'mappy');
   }
   
   
+}
   // Now use the map as required...
-  //getMap('201', 's columbia', '27514', 'mappy');
+  getMap('201', 's columbia', '27514', 'mappy');
   //geocode(platform);
 
 
