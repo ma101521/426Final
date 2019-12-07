@@ -1,22 +1,20 @@
 /**
- * Calculates and displays the address details of  425 Randolph St, Chicago, IL
- * based on a structured input
- *
- *
+ * 
  * A full list of available request parameters can be found in the Geocoder API documentation.
  * see: http://developer.here.com/rest-apis/documentation/geocoder/topics/resource-geocode.html
  *
  *@param   {H.service.Platform} platform    A stub class to access HERE services
  */
-
-function geocode(platform) {
+ 
+var mapID
+ //
+ function getMap(houseNum, streetName, zipCode, mapID) {
+    mapID = ID;
     var geocoder = platform.getGeocodingService(),
       geocodingParameters = {
-        housenumber: '201',
-        street: 's columbia',
-        city: 'chapel hill',
-        postalcode: '27514',
-        country: 'usa',
+        housenumber: houseNum,
+        street: streetName,
+        postalcode: zipCode,
         jsonattributes : 1
       };
   
@@ -25,7 +23,8 @@ function geocode(platform) {
       onSuccess,
       onError
     );
-  }
+ }
+
   
   /**
    * This function will be called once the Geocoder REST API provides a response
@@ -76,14 +75,14 @@ var map = new H.Map(
   //this is the end of a static map
   //map does not like to load unless the style for width/height is defined
 */
-
+getMap('201', 's columbia', '27514', 'mappy');
   //Initialize map
   var map = new H.Map(
-    document.getElementById('mappy'),
+    document.getElementById(mapID),
     defaultLayers.vector.normal.map,
     {
-      center: {lat:35.780, lng:-78.538},
-      zoom: 50,
+      center: {lat:35.913, lng:-79.056},
+      zoom: 13,
     });
   // add a resize listener to make sure that the map occupies the whole container
   //window.addEventListener('resize', () => map.getViewPort().resize());
@@ -129,7 +128,7 @@ var map = new H.Map(
    */
 
 
-   /*
+   
   function addLocationsToPanel(locations){
   
     var nodeOL = document.createElement('ul'),
@@ -169,7 +168,7 @@ var map = new H.Map(
   
     locationsContainer.appendChild(nodeOL);
   }
-  */
+  
   
   
   /**
@@ -185,11 +184,14 @@ var map = new H.Map(
       i;
   
     // Add a marker for each location found
+    
     for (i = 0;  i < locations.length; i += 1) {
+      
       position = {
         lat: locations[i].location.displayPosition.latitude,
         lng: locations[i].location.displayPosition.longitude
       };
+      
       marker = new H.map.Marker(position);
       marker.label = locations[i].location.address.label;
       group.addObject(marker);
@@ -204,13 +206,14 @@ var map = new H.Map(
     // Add the locations group to the map
     map.addObject(group);
     map.getViewModel().setLookAtData({
-      bounds: group.getBoundingBox()
+     bounds: group.getBoundingBox()
     });
   }
   
   
   // Now use the map as required...
-  geocode(platform);
+  //getMap('201', 's columbia', '27514', 'mappy');
+  //geocode(platform);
 
 
 
