@@ -1,13 +1,5 @@
-/**
- * 
- * A full list of available request parameters can be found in the Geocoder API documentation.
- * see: http://developer.here.com/rest-apis/documentation/geocoder/topics/resource-geocode.html
- *
- *@param   {H.service.Platform} platform    A stub class to access HERE services
- */
 
-
- //initialize communication with the platform
+//initialize communication with the platform
  var platform = new H.service.Platform({
   apikey: 'l1Lu-8FedQeEX8DEyatsDvHtips48kEmWgPt9OL0Rrs'
 });
@@ -91,32 +83,19 @@ var defaultLayers = platform.createDefaultLayers();
           label: locations[i].location.address.label
         };
       }
-    
-      // Add the locations group to the map
-      map.addObject(group);
 
-
-
-
-
-
-
+      //getting coordinates for routing, start is chapel hill
       var stString = 'geo!35.913,-79.056'
       var endString ='geo!' + position.lat + ',' + position.lng
 
       var routingParameters = {
-      // The routing mode:
-      'mode': 'fastest;car',
-      // The start point of the route:
-      'waypoint0': stString,
-      // The end point of the route:
-      'waypoint1': endString,
-      // To retrieve the shape of the route we choose the route
-      // representation mode 'display'
-      'representation': 'display'
+        mode: 'fastest;car',
+        waypoint0: stString,
+        waypoint1: endString,
+        representation: 'display'
     };
   
-    // Define a callback function to process the routing response:
+    //callback function for routing response
     var onResult = function(result) {
       var route,
         routeShape,
@@ -124,103 +103,80 @@ var defaultLayers = platform.createDefaultLayers();
         endPoint,
         linestring;
       if(result.response.route) {
-      // Pick the first route from the response:
-      route = result.response.route[0];
-      // Pick the route's shape:
-      routeShape = route.shape;
-    
-      // Create a linestring to use as a point source for the route line
-      linestring = new H.geo.LineString();
-    
-      // Push all the points in the shape into the linestring:
-      routeShape.forEach(function(point) {
-        var parts = point.split(',');
-        linestring.pushLatLngAlt(parts[0], parts[1]);
-      });
-    
-      // Retrieve the mapped positions of the requested waypoints:
-      startPoint = route.waypoint[0].mappedPosition;
-      endPoint = route.waypoint[1].mappedPosition;
-    
-      // Create an outline for the route polyline:
-      var routeOutline = new H.map.Polyline(linestring, {
-        style: {
-          lineWidth: 10,
-          strokeColor: 'rgba(0, 128, 255, 0.7)',
-          lineTailCap: 'arrow-tail',
-          lineHeadCap: 'arrow-head'
-        }
-      });
-      // Create a patterned polyline:
-      var routeArrows = new H.map.Polyline(linestring, {
-        style: {
-          lineWidth: 10,
-          fillColor: 'white',
-          strokeColor: 'rgba(255, 255, 255, 1)',
-          lineDash: [0, 2],
-          lineTailCap: 'arrow-tail',
-          lineHeadCap: 'arrow-head' }
-        }
-      );
-      // create a group that represents the route line and contains
-      // outline and the pattern
-      var routeLine = new H.map.Group();
-      routeLine.addObjects([routeOutline, routeArrows]);
-    
-      // Create a marker for the start point:
-      var startMarker = new H.map.Marker({
-        lat: startPoint.latitude,
-        lng: startPoint.longitude,
-        label: "Chapel Hill"
-      });
-    
-      // Create a marker for the end point:
-      var endMarker = new H.map.Marker({
-        lat: endPoint.latitude,
-        lng: endPoint.longitude
-      });
-    
+        route = result.response.route[0];
+        routeShape = route.shape;
+      
+        // Create a linestring to use as a point source for the route line and add points
+        linestring = new H.geo.LineString();
+        routeShape.forEach(function(point) {
+          var parts = point.split(',');
+          linestring.pushLatLngAlt(parts[0], parts[1]);
+        });
+      
+        // Retrieve the mapped positions of the requested waypoints
+        startPoint = route.waypoint[0].mappedPosition;
+        endPoint = route.waypoint[1].mappedPosition;
+      
+        //creating the route line, which to create a line with direction 
+        //involves combining two separate route lines
+        var routeOutline = new H.map.Polyline(linestring, {
+          style: {
+            lineWidth: 6,
+            strokeColor: '#c51bd4',
+            lineTailCap: 'arrow-tail',
+            lineHeadCap: 'arrow-head'
+          }
+        });
+        var routeArrows = new H.map.Polyline(linestring, {
+          style: {
+            lineWidth: 6,
+            fillColor: 'white',
+            strokeColor: 'rgba(255, 255, 255, 1)',
+            lineDash: [0, 2],
+            lineTailCap: 'arrow-tail',
+            lineHeadCap: 'arrow-head' }
+          }
+        );
+        var routeLine = new H.map.Group();
+        routeLine.addObjects([routeOutline, routeArrows]);
+      
+        // Create a marker for the start and end points
+        var startMarker = new H.map.Marker({
+          lat: startPoint.latitude,
+          lng: startPoint.longitude,
+        });
+        startMarker.addEventListener('tap', function (evt) {
+          map.setCenter(evt.target.getGeometry());
+          openBubble(
+            evt.target.getGeometry(), "Chapel Hill\nYou are here!");
+        }, false);
 
-      group.addEventListener('tap', function (evt) {
-        map.setCenter(evt.target.getGeometry());
-        openBubble(
-          evt.target.getGeometry(), evt.target.label);
-      }, false);
-      // Add the route polyline and the two markers to the map:
-      map.addObjects([routeLine, startMarker, endMarker]);
-    
-      // Set the map's viewport to make the whole route visible:
-      map.getViewModel().setLookAtData({bounds: routeLine.getBoundingBox()});
+        var endMarker = new H.map.Marker({
+          lat: endPoint.latitude,
+          lng: endPoint.longitude,
+        });
+        endMarker.addEventListener('tap', function (evt) {
+          map.setCenter(evt.target.getGeometry());
+          openBubble(
+            evt.target.getGeometry(), position.label);
+        }, false);
+        
+        // Add the route and markers to the map
+        map.addObjects([routeLine, startMarker, endMarker]);
+        map.getViewModel().setLookAtData({bounds: routeLine.getBoundingBox()});
       }
     };
     
-    // Get an instance of the routing service:
     var router = platform.getRoutingService();
-    
-    // Call calculateRoute() with the routing parameters,
-    // the callback and an error callback function (called if a
-    // communication error occurs):
     router.calculateRoute(routingParameters, onResult,
       function(error) {
         alert(error.message);
       });
-
-
-
-
-
-
-
-      // resizes the map so that all markers are in the map window
-      map.getViewModel().setLookAtData({
-      bounds: group.getBoundingBox()
-      });
     }
-    
     
   }
   // Test calling the map function
-  getMap('201', 's columbia', '27514', 'mappy');
+  getMap('112', 'battle lane', '27514', 'mappy');
   getMap('409','swann trl', '27527', 'mapContainer');
 
 

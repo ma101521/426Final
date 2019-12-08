@@ -210,12 +210,12 @@ $(function(){
     //put code here to load the dashboard in order of their match score
 
     //list of provider names since all the names have the class "provName"
-    let providers = $(".provName").map(function(){
-        return this.innerHTML;
-    }).get();
+    
     let search = $("#searchBar");
-
     search.on("input", debounce(function(){
+        let providers = $(".provName").map(function(){
+            return this.innerHTML;
+        }).get();
         autocomplete(search, providers)}, 100)
     );    
 })
