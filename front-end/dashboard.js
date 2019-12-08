@@ -135,26 +135,40 @@ $(function(){
 
 
         //Check Boxes 
-        let q2NotCount = 0;
-        for(let i = 0; i < patient.q2.length; i++){
-            if(patient.q2[i] != provider.q2[i]){
-                q2NotCount++;
+        let q2Count = 0;
+        patient.q2['checked'].forEach(checkedVal =>{
+            if (provider.q2['checked'].includes(checkedVal)){
+                q2Count++;
             }
-        }
-        q2Points = (patient.q2.length -  q2NotCount)/13;
-        pointTotal = pointTotal + q2NotCount;
+        })
+        patient.q2['unchecked'].forEach(uncheckVal =>{
+            if(provider.q2['unchecked'].includes(uncheckVal)){
+                q2Count++;
+            }
+        })
+        q2Points = (q2Count)/13;
+        pointTotal = pointTotal + q2Points;
 
-        let q3NotCount = 0;
-        for(let i = 0; i < patient.q3.length; i++){
-            if(patient.q3[i] != provider.q3[i]){
-                q2NotCount++;
+
+        let q3Count = 0;
+        patient.q3['checked'].forEach(checkedVal =>{
+            if (provider.q3['checked'].includes(checkedVal)){
+                q3Count++;
             }
-        }
-        q3Points = ((patient.q3.length -  q3NotCount)/12)*6;
-        pointTotal = pointTotal + q3NotCount;
+        })
+        patient.q3['unchecked'].forEach(uncheckVal =>{
+            if(provider.q3['unchecked'].includes(uncheckVal)){
+                q3Count++;
+            }
+        })
+        q3Points = ((q3Count)/12)*6;
+        pointTotal = pointTotal + q3Points;
+
 
         let score = pointTotal/20;
-        return score;
+        let matchPercentage = score *100; 
+        matchPercentage = Math.round(matchPercentage * 100) / 100
+        return matchPercentage;
     }
 
     //put code here to load the dashboard in order of their match score
@@ -168,6 +182,7 @@ $(function(){
     debounce(autocomplete(search, providers));
     
 })
+
 
 function autocomplete(input, array){
     let result;
