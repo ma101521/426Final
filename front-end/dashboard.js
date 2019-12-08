@@ -24,6 +24,7 @@ $(function(){
                 //console.log(user);
                 let providers = response.data.data;
                 let providerNames = Object.keys(providers);
+                let matches = [];
                 providerNames.forEach(provider => {
                     let match ={
                         'name': providers[provider].drName,
@@ -31,8 +32,22 @@ $(function(){
                         'address': providers[provider].address,
                         'matchPercentage': getMatch(user, providers[provider])
                     }
-                    createRowBox(match);
+                    matches.push(match);
                    })
+                matches = matches.sort(function(a, b){
+                    if (a.matchPercentage < b.matchPercentage){
+                        return 1;
+                    }
+                    else if (a.matchPercentage > b.matchPercentage){
+                        return -1;
+                    }
+                    else{
+                        return 0;
+                    }
+                });
+                matches.forEach(match => {
+                    createRowBox(match);
+                })
             })
             .catch(error => console.log(error.response))
             })
