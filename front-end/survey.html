@@ -31,8 +31,8 @@
                         <h4 class = "subtitle has-text-weight-bold">I am a ...</h4>
                         <hr class="is-blue">
                         <div class="control" id="q1">
-                            <input type="radio" name="I am a" value="patient" class="radio" id="patientRadio">Patient<br>
-                            <input type="radio" name="I am a" value="provider" class="radio" id="providerRadio">Provider<br>
+                            <input type="radio" name="I am a" value="patient" class="radio" id="patientRadio" required>Patient<br>
+                            <input type="radio" name="I am a" value="provider" class="radio" id="providerRadio" required>Provider<br>
                                 <div class="content has-text-centered" hidden id="providerForm">
                                     <form class="providerForm">
                                         <input class="input" id="providerName" type = "text" placeholder="Doctor's Name" required><br>
@@ -50,9 +50,9 @@
                         <h4 class = "subtitle has-text-weight-bold">What is your gender? </h4>
                         <hr>
                         <div class="control">
-                            <input type="radio" name="What is your gender?" value="Male" class="radio">Male<BR>
-                            <input type="radio" name="What is your gender?" value="Female" class="radio">Female<BR>
-                            <input type="radio" name="What is your gender?" value="Non-binary" class="radio">Non-binary<BR>
+                            <input type="radio" name="What is your gender?" value="Male" class="radio" required>Male<BR>
+                            <input type="radio" name="What is your gender?" value="Female" class="radio" required>Female<BR>
+                            <input type="radio" name="What is your gender?" value="Non-binary" class="radio" required>Non-binary<BR>
                         </div>
                     </div>
                 </div>
@@ -62,22 +62,22 @@
                         <h4 class = "subtitle has-text-weight-bold">Which of the following statements describe you? Please check all that apply. </h4>
                         <hr>
                         <div class="control">
-                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am interested in becoming a parent in the future." class="checkbox"> <span class="checkmark"></span> I am interested in becoming a parent in the future.<BR>
-                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am interested in becoming a parent through fostering and/or adoption in the future." class="checkbox"> I am interested in becoming a parent through fostering and/or adoption in the future.<BR>
-                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am interested in becoming pregnant in the future." class="checkbox"> I am interested in becoming pregnant in the future.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am interested in becoming a parent in the future." class="checkbox" id="a1"> <span class="checkmark"></span> I am interested in becoming a parent in the future.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am interested in becoming a parent through fostering and/or adoption in the future." id="a2" class="checkbox"> I am interested in becoming a parent through fostering and/or adoption in the future.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am interested in becoming pregnant in the future." class="checkbox" id="a3"> I am interested in becoming pregnant in the future.<BR>
                             
-                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am pregnant." class="checkbox"> I am pregnant.<BR>
-                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am 0-3 months postpartum." class="checkbox"> I am 0-3 months postpartum.<BR>
-                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am 3-6 months postpartum." class="checkbox"> I am 3-6 months postpartum.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am pregnant." class="checkbox" id="a4"> I am pregnant.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am 0-3 months postpartum." class="checkbox" id="a5"> I am 0-3 months postpartum.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am 3-6 months postpartum." class="checkbox" id ="a6"> I am 3-6 months postpartum.<BR>
 
-                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent to a newborn." class="checkbox"> I am a parent to a newborn.<BR>
-                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent to an infant." class="checkbox"> I am a parent to an infant.<BR>
-                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent to a toddler (1-4 years old)." class="checkbox"> I am a parent to a toddler (1-4 years old).<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent to a newborn." class="checkbox" id="a7"> I am a parent to a newborn.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent to an infant." class="checkbox" id="a8"> I am a parent to an infant.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent to a toddler (1-4 years old)." id = "a9" class="checkbox"> I am a parent to a toddler (1-4 years old).<BR>
 
-                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent to a child who is 5-7 years old." class="checkbox"> I am a parent to a child who is 5-7 years old.<BR>
-                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent to a child who is 8 + years old." class="checkbox"> I am a parent to a child who is 8 + years old.<BR>
-                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent of twins." class="checkbox"> I am a parent of twins.<BR>
-                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a foster parent." class="checkbox"> I am a foster parent.<BR>   
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent to a child who is 5-7 years old." class="checkbox" id="a10"> I am a parent to a child who is 5-7 years old.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent to a child who is 8 + years old." class="checkbox" id="a11"> I am a parent to a child who is 8 + years old.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a parent of twins." class="checkbox" id="a12"> I am a parent of twins.<BR>
+                            <input type="checkbox" name="Which of the following statements describe you. Please check all that apply." value="I am a foster parent." class="checkbox" id="a13"> I am a foster parent.<BR>   
                         </div>    
                     </div>                   
                 </div>
@@ -87,21 +87,21 @@
                         <h4 class = "subtitle has-text-weight-bold">What topics are you interested in learning more about? Please check all that apply. </h4>
                         <hr>
                         <div class="control">
-                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Nutrition for fertility " class="checkbox"> Nutrition for fertility<BR>
-                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Nutrition during pregnancy " class="checkbox"> Nutrition during pregnancy<BR>
-                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Nutrition after giving birth" class="checkbox"> Nutrition after giving birth<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Nutrition for fertility " class="checkbox" id="a21"> Nutrition for fertility<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Nutrition during pregnancy " class="checkbox" id="a22"> Nutrition during pregnancy<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Nutrition after giving birth" class="checkbox" id="a23"> Nutrition after giving birth<BR>
                             
-                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Healthy recipes" class="checkbox"> Healthy recipes<BR>
-                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Meal planning" class="checkbox"> Meal planning<BR>
-                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value= "Breastfeeding" class="checkbox"> Breastfeeding<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Healthy recipes" class="checkbox" id="a24"> Healthy recipes<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Meal planning" class="checkbox" id="a25"> Meal planning<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value= "Breastfeeding" class="checkbox" id="a26"> Breastfeeding<BR>
 
-                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Infant-feeding" class="checkbox"> Infant-feeding<BR>
-                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Introducing solid foods" class="checkbox"> Introducing solid foods<BR>
-                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Nutrition for toddlers" class="checkbox"> Nutrition for toddlers<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Infant-feeding" class="checkbox" id="a27"> Infant-feeding<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Introducing solid foods" class="checkbox" id="a28"> Introducing solid foods<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Nutrition for toddlers" class="checkbox" id="a29"> Nutrition for toddlers<BR>
 
-                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Food allergies, intolerances, and sensitivities " class="checkbox"> Food allergies, intolerances, and sensitivities <BR>
-                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Self-care" class="checkbox"> Self-care<BR>
-                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Body image" class="checkbox"> Body image<BR>  
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Food allergies, intolerances, and sensitivities " class="checkbox" id="a210"> Food allergies, intolerances, and sensitivities <BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Self-care" class="checkbox" id="a211"> Self-care<BR>
+                            <input type="checkbox" name="What topics are you interested in learning more about? Please check all that apply." value="Body image" class="checkbox" id="a212"> Body image<BR>  
                         </div>  
                     </div>                     
                 </div>
@@ -238,6 +238,7 @@
                 <div class="control content has-text-centered">
                     <button class="button is-purple"><a href="dashboard.html">Cancel</a></button>
                     <button type="submit" class="button is-purple" id="submitbutton"><a href="dashboard.html">Submit</a></button>
+                    <!-- <input type="submit" id = "submitbutton" value="submit"> -->
                 </div>
                 <hr>
             </form>

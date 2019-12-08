@@ -60,14 +60,30 @@ $(function () {
 
     function create(event) {
         event.preventDefault();
-        let describeYou = [];
-        $.each($('input[name="Which of the following statements describe you. Please check all that apply."]:checked'), function () {
-            describeYou.push($(this).val());
-        });
-        let topics = [];
-        $.each($('input[name="What topics are you interested in learning more about? Please check all that apply."]:checked'), function () {
-            topics.push($(this).val());
-        });
+        let describeYoucheck = [];
+        let describeYouUncheck = [];
+        let ans1 = ['a1', 'a2', 'a3','a4','a5','a6','a7','a8','a9','a10','a11','a12','a13'];
+        ans1.forEach(answer => {
+            if (document.getElementById(answer).checked){
+                describeYoucheck.push(document.getElementById(answer).value)
+            }
+            else{
+                describeYouUncheck.push(document.getElementById(answer).value)
+            }
+        })
+        let describeYou = {'checked': describeYoucheck, 'unchecked': describeYouUncheck}
+        let topicscheck = [];
+        let topicsUncheck = [];
+        let ans2 = ['a21', 'a22', 'a23','a24','a25','a26','a27','a28','a29','a210','a211','a212'];
+        ans2.forEach(answer => {
+            if (document.getElementById(answer).checked){
+                topicscheck.push(document.getElementById(answer).value)
+            }
+            else{
+                topicsUncheck.push(document.getElementById(answer).value)
+            }
+        })
+        let topics = {'checked': topicscheck, 'unchecked': topicsUncheck};
         let type = $('input[name="I am a"]:checked').val();
         if (type == 'patient') {
             axios({
