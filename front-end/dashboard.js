@@ -214,7 +214,6 @@ function autocomplete(input, array){
                 element.scrollIntoView(true);
             })
         }
-        console.log(result);
     //})
 }
 
