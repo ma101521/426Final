@@ -154,6 +154,7 @@ function autocomplete(input, array){
     let result;
     input.on("input", function(event){
         result = [];
+        $(".resultsDiv").empty();
         let value = input.val();
         if (value != ""){
             for (let i = 0; i < array.length; i++){
@@ -161,6 +162,15 @@ function autocomplete(input, array){
                     result.push(array[i]);
                 }
             }
+        }
+        for (let j = 0; j < result.length; j++){
+            $(".resultsDiv").append(
+                `
+                <a class="list-item">
+                    ${result[j]}
+                </a>
+                `
+            )
         }
         console.log(result);
     })

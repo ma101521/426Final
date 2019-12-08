@@ -20,6 +20,8 @@ body{
 }
 
 .tableBox{
+    position: relative;
+    z-index: 0;
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 10%;
@@ -121,6 +123,16 @@ body{
 #searchButton{
     margin-left: 5px;
     margin-bottom: 5px;
+}
+
+.resultDiv{
+}
+
+.resultsDiv{
+    position: absolute;
+    z-index: 1;
+    margin-left: 3%;
+    width: 300px;
 }
 
 /*.control .checkmark:after {
