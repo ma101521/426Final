@@ -165,13 +165,14 @@ $(function(){
     }).get();
     let search = $("#searchBar");
 
-    debounce(autocomplete(search, providers));
-    
+    search.on("input", debounce(function(){
+        autocomplete(search, providers)}, 100)
+    );    
 })
 
 function autocomplete(input, array){
     let result;
-    input.on("input", function(event){
+    //input.on("input", function(event){
         result = [];
         $(".resultsDiv").empty();
         let value = input.val();
@@ -192,17 +193,34 @@ function autocomplete(input, array){
             )
         }
         console.log(result);
-    })
+    //})
 }
 
-function debounce(func, wait){
-    //create variable for timeout, will not hold a value to start
+/*
+    Debouncing function, pulled code from
+    https://www.geeksforgeeks.org/debouncing-in-javascript/
+    https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086
+    to create
+*/
+
+function debounce(func, wait, immediate){
     let timeout;
-    return function(...args){
+    return function(){
         let context = this;
-        //check if timeout has a value. if it doesn't, we can call the function now
-        let callNow = !timeout;
+        let args = arguments;
+        let later = function(){
+            timeout = null;
+            if (!immediate){
+                func.apply(context, args);
+            }
+        }
+
+        let callNow = immediate && !timeout;
         clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(context, args), wait);
+
+        timeOut = setTimeout(later, wait);
+        if (callNow){
+            func.apply(context, args);
+        }
     }
 }
