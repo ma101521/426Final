@@ -201,11 +201,18 @@ function autocomplete(input, array){
         for (let j = 0; j < result.length; j++){
             $(".resultsDiv").append(
                 `
-                <a class="list-item">
+                <a class="list-item searchOption" id="${result[j]}">
                     ${result[j]}
                 </a>
                 `
             )
+            $(".searchOption").on('click', function(event){
+                event.stopImmediatePropagation();
+                let str = event.target.id;
+                let element = document.getElementsByClassName("rowBox " + str);
+                element = element[0];
+                element.scrollIntoView(true);
+            })
         }
         console.log(result);
     //})

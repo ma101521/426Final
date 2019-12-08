@@ -125,9 +125,6 @@ body{
     margin-bottom: 5px;
 }
 
-.resultDiv{
-}
-
 .resultsDiv{
     position: absolute;
     z-index: 1;
