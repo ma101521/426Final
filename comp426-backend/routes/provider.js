@@ -45,3 +45,11 @@ router.post('/create', authenticateUser, function (req, res) {
 router.get('/all', authenticateUser, function (req, res) {
     res.send({ data: providerStore.get(`users`), status: 'Successfully found all' });
 });
+
+
+//delete provider by username method 
+router.delete('/:username', function (req, res) {
+    const {username} = req.params;
+    providerStore.del(`users.${username}`);
+    res.send({status: `'${username}' deleted.`});
+});
