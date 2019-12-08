@@ -196,6 +196,13 @@ function autocomplete(input, array){
     //})
 }
 
+/*
+    Debouncing function, pulled code from
+    https://www.geeksforgeeks.org/debouncing-in-javascript/
+    https://levelup.gitconnected.com/debounce-in-javascript-improve-your-applications-performance-5b01855e086
+    to create
+*/
+
 function debounce(func, wait, immediate){
     let timeout;
     return function(){
