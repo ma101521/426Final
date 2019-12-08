@@ -155,9 +155,11 @@ function autocomplete(input, array){
     input.on("input", function(event){
         result = [];
         let value = input.val();
-        for (let i = 0; i < array.length; i++){
-            if (array[i].substr(0, value.length).toLowerCase() == value.toLowerCase()){
-                result.push(array[i]);
+        if (value != ""){
+            for (let i = 0; i < array.length; i++){
+                if (array[i].substr(0, value.length).toLowerCase() == value.toLowerCase()){
+                    result.push(array[i]);
+                }
             }
         }
         console.log(result);

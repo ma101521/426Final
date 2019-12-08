@@ -114,6 +114,15 @@ body{
     width: 45%;
 }
 
+#searchBar{
+    width: 300px;
+}
+
+#searchButton{
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
 /*.control .checkmark:after {
     left: 9px;
     top: 5px;
