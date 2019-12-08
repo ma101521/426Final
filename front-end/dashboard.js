@@ -63,7 +63,7 @@ $(function(){
                     <div class="column">
                         <p class="contactName">
                             <span class="provName">${match.name}</span><br>
-                            ${match.address} <br>
+                            ${match.address.number}${match.address.street}${match.address.zip} <br>
                             ${match.phone}
                         </p>
                     </div>
@@ -71,7 +71,7 @@ $(function(){
                         <p class="contactMatch">${match.matchPercentage}%</p>
                     </div>
                     <div class="column has-text-centered">
-                        <p><a href="https://www.ourmothership.org/" class="contactLink has-text-grey">Website</a></p>
+                    
                     </div>
                 </div>
             </div>
@@ -296,3 +296,9 @@ function debounce(func, wait, immediate){
         }
     }
 }
+
+
+
+
+
+
