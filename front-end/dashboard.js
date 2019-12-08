@@ -41,6 +41,27 @@ $(function(){
 
     function createRowBox(match){
         console.log(match)
+        let tableContent = $("#tableContent");
+        tableContent.append(`
+            <div class="box rowBox ${match.name}">
+                <div class="columns">
+                    <div class="column">
+                        <p class="contactName">
+                            <span class="provName">${match.name}</span><br>
+                            ${match.address} <br>
+                            ${match.phone}
+                        </p>
+                    </div>
+                    <div class="column has-text-centered">
+                        <p class="contactMatch">${match.matchPercentage}%</p>
+                    </div>
+                    <div class="column has-text-centered">
+                        <p><a href="https://www.ourmothership.org/" class="contactLink has-text-grey">Website</a></p>
+                    </div>
+                </div>
+            </div>
+        
+        `)
     }
 
     /*+++++++++++++++POINT VALUES++++++++++++++++++
