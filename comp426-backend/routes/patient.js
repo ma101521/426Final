@@ -48,4 +48,11 @@ router.get('/user', authenticateUser, function (req, res) {
     res.send({data: patientStore.get(`users.${username}`), status: 'Successfully found user '+username});
 });
 
+//delete patient method 
+router.delete('/:username', function (req, res) {
+    const {username} = req.params;
+    patientStore.del(`users.${username}`);
+    res.send({status: `'${username}' deleted.`});
+});
+
 

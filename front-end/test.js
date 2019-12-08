@@ -12,11 +12,29 @@ $(function () {
     })
     $('#getUser').click(getUser);
     $('#getProviders').click(getAllProviders);
+    $('#deleteProvider').click(deleteProvider);
+    $('#deletePatient').click(deletePatient);
+
+    function deleteProvider(event){
+        event.preventDefault();
+        let provider = $('#username').val();
+        console.log('delete provider ' + provider);
+        axios.delete('http://localhost:3000/provider/'+provider)
+        .then(response=> console.log(response))
+        .catch(error => console.log(error.response))
+    }
+
+    function deletePatient(event){
+        event.preventDefault();
+        let patient = $('#username').val();
+        console.log('delete patient ' + patient);
+        axios.delete('http://localhost:3000/patient/'+patient)
+        .then(response=> console.log(response))
+        .catch(error => console.log(error.response))
+    }
 
     function getAllProviders(event) {
         event.preventDefault();
-        console.log('hellooooo');
-        //let username = $('#username').val();
         axios.get('http://localhost:3000/provider/all',
         {
         headers: {
