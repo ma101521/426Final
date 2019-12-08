@@ -101,11 +101,10 @@ $(function () {
                     q5: $('input[name="I like structure."]:checked').val(),
                     q6: $('input[name="I am a perfectionist."]:checked').val(),
                     q7: $('input[name="It’s important for me and my family to achieve health ideals."]:checked').val(),
-                    q8: $('input[name="I am a perfectionist."]:checked').val(),
-                    q9: $('input[name="My family’s overall well-being is more important to me than achieving specific health ideals."]:checked').val(),
-                    q10: $('#q9').val(),
-                    q11: $('#q10').val(),
-                    q12: $('#q11').val()
+                    q8: $('input[name="My family’s overall well-being is more important to me than achieving specific health ideals."]:checked').val(),
+                    q9: $('#q9').val(),
+                    q10: $('#q10').val(),
+                    q11: $('#q11').val()
                 },
             })
             .then(response => console.log(response))
@@ -136,11 +135,10 @@ $(function () {
                     q5: $('input[name="I like structure."]:checked').val(),
                     q6: $('input[name="I am a perfectionist."]:checked').val(),
                     q7: $('input[name="It’s important for me and my family to achieve health ideals."]:checked').val(),
-                    q8: $('input[name="I am a perfectionist."]:checked').val(),
-                    q9: $('input[name="My family’s overall well-being is more important to me than achieving specific health ideals."]:checked').val(),
-                    q10: $('#q9').val(),
-                    q11: $('#q10').val(),
-                    q12: $('#q11').val()
+                    q8: $('input[name="My family’s overall well-being is more important to me than achieving specific health ideals."]:checked').val(),
+                    q9: $('#q9').val(),
+                    q10: $('#q10').val(),
+                    q11: $('#q11').val()
                 },
             })
             .then(response => console.log(response))

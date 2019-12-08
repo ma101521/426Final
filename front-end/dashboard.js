@@ -81,12 +81,14 @@ $(function(){
             pointTotal = pointTotal + 0.5;
         }
 
+        
         if(patient.q5 == provider.q5){
             pointTotal ++;
         }
         else if(patient.q5 == (provider.q5 -1) || patient.q5 == (provider.q5 +1)){
             pointTotal = pointTotal + 0.5;
         }
+        
 
         if(patient.q6 == provider.q6){
             pointTotal ++;
@@ -109,6 +111,8 @@ $(function(){
             pointTotal = pointTotal + 0.5;
         }
 
+    
+
         //Slider will check how close the value is to the health provider's and multiply that by the point value awarded for that question
             // Difference between the numbers 
             // If possitve subtract if negative add 
@@ -120,12 +124,14 @@ $(function(){
         let x = 10 - sliderOneDiff;
         let pointsOneAwarded = (x * 1)/10;
         pointTotal = pointTotal + pointsOneAwarded;
+        
 
         let sliderTwoDiff = (patient.q10 - provider.q10);
         if(sliderTwoDiff < 0){sliderTwoDiff = (sliderTwoDiff * -1)}
         let y = 10 - sliderTwoDiff;
         let pointsTwoAwarded = (y * 3)/10;
         pointTotal = pointTotal + pointsTwoAwarded;
+        
 
         let sliderThreeDiff = (patient.q11 - provider.q11);
         if(sliderThreeDiff < 0){sliderThreeDiff = (sliderThreeDiff * -1)}
@@ -133,6 +139,7 @@ $(function(){
         let pointsThreeAwarded = (z * 3)/10;
         pointTotal = pointTotal + pointsThreeAwarded;
 
+        
 
         //Check Boxes 
         let q2Count = 0;
