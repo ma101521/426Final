@@ -134,6 +134,25 @@ $(function(){
         pointTotal = pointTotal + pointsThreeAwarded;
 
 
+        //Check Boxes 
+        let q2NotCount = 0;
+        for(let i = 0; i < patient.q2.length; i++){
+            if(patient.q2[i] != provider.q2[i]){
+                q2NotCount++;
+            }
+        }
+        q2Points = (patient.q2.length -  q2NotCount)/13;
+        pointTotal = pointTotal + q2NotCount;
+
+        let q3NotCount = 0;
+        for(let i = 0; i < patient.q3.length; i++){
+            if(patient.q3[i] != provider.q3[i]){
+                q2NotCount++;
+            }
+        }
+        q3Points = ((patient.q3.length -  q3NotCount)/12)*6;
+        pointTotal = pointTotal + q3NotCount;
+
         let score = pointTotal/20;
         return score;
     }
