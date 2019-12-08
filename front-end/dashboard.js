@@ -24,15 +24,23 @@ $(function(){
                 //console.log(user);
                 let providers = response.data.data;
                 let providerNames = Object.keys(providers);
-                let matchPair = [];
                 providerNames.forEach(provider => {
-                    matchPair.push(providers[provider].drName, providers[provider].phone, providers[provider].address, getMatch(user, providers[provider]))
-                })
-                console.log(matchPair);
+                    let match ={
+                        'name': providers[provider].drName,
+                        'phone': providers[provider].phone,
+                        'address': providers[provider].address,
+                        'matchPercentage': getMatch(user, providers[provider])
+                    }
+                    createRowBox(match);
+                   })
             })
             .catch(error => console.log(error.response))
             })
             .catch(error => console.log(error.reponse))
+    }
+
+    function createRowBox(match){
+        console.log(match)
     }
 
     /*+++++++++++++++POINT VALUES++++++++++++++++++
