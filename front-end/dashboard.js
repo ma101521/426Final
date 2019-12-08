@@ -137,4 +137,41 @@ $(function(){
         let score = pointTotal/20;
         return score;
     }
+
+    //put code here to load the dashboard in order of their match score
+
+    //list of provider names since all the names have the class "provName"
+    let providers = $(".provName").map(function(){
+        return this.innerHTML;
+    }).get();
+    let search = $("#searchBar");
+
+    debounce(autocomplete(search, providers));
+    
 })
+
+function autocomplete(input, array){
+    let result;
+    input.on("input", function(event){
+        result = [];
+        let value = input.val();
+        for (let i = 0; i < array.length; i++){
+            if (array[i].substr(0, value.length).toLowerCase() == value.toLowerCase()){
+                result.push(array[i]);
+            }
+        }
+        console.log(result);
+    })
+}
+
+function debounce(func, wait){
+    //create variable for timeout, will not hold a value to start
+    let timeout;
+    return function(...args){
+        let context = this;
+        //check if timeout has a value. if it doesn't, we can call the function now
+        let callNow = !timeout;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+    }
+}
