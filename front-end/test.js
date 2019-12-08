@@ -114,7 +114,10 @@ $(function () {
         else {
             let drName = $('#providerName').val();
             let phone = $('#providerPhone').val();
-            let address = $('#providerAddress').val();
+            let Num = $('#Number').val();
+            let street = $('#Street').val();
+            let zip = $('#Zip').val();
+            let address = {'number': Num, 'street': street, 'zip':zip};
             axios({
                 method: 'post',
                 url: 'http://localhost:3000/provider/create',
