@@ -1,3 +1,4 @@
+//import './demo.js';
 $(function(){
 
     let jwt = localStorage.getItem('jwt');
@@ -71,7 +72,7 @@ $(function(){
                         <p class="contactMatch">${match.matchPercentage}%</p>
                     </div>
                     <div class="column has-text-centered">
-                    
+                    ${getMap('112', 'battle lane', '27514', 'mappy')}
                     </div>
                 </div>
             </div>

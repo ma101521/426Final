@@ -8,7 +8,7 @@ var defaultLayers = platform.createDefaultLayers();
 
 //a function that, when given a street address and div ID, will produce a map
 //giving directions from chapel hill to that address
- function getMap(houseNum, streetName, zipCode, mapID) {
+function getMap(houseNum, streetName, zipCode, mapID) {
     var geocoder = platform.getGeocodingService(),
       geocodingParameters = {
         housenumber: houseNum,
@@ -177,7 +177,7 @@ var defaultLayers = platform.createDefaultLayers();
   }
   // Test calling the map function
   getMap('112', 'battle lane', '27514', 'mappy');
-  getMap('409','swann trl', '27527', 'mapContainer');
+  //getMap('409','swann trl', '27527', 'mapContainer');
 
 
 
