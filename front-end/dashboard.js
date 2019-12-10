@@ -72,9 +72,7 @@ $(function(){
                         <p class="contactMatch">${match.matchPercentage}%</p>
                     </div>
                     <div class="column has-text-centered">
-                        <div style="width: 120px; height: 180px" id="12345">
-                        ${getMap('201', 's columbia', '27514', '12345')}
-                        </div>
+                        
                     </div>
                 </div>
             </div>
