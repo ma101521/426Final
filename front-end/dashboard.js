@@ -1,9 +1,36 @@
 //import './demo.js';
 $(function(){
 
+    $('#deleteProfile').click(deleteProfile)
     let jwt = localStorage.getItem('jwt');
     getUser();
 
+    function deleteProfile(event){
+        event.preventDefault();
+        console.log('delete');
+        axios.get('http://localhost:3000/patient/user',
+        {
+            headers: {
+              //jwt is the jwt from logging in
+              "Authorization": "Bearer " + jwt
+            },
+        })
+        .then(response => {
+            let user = response.data.username;
+            axios.delete('http://localhost:3000/patient/'+user)
+            .then(response=> {
+                console.log(response)
+                axios.delete('http://localhost:3000/account/'+user)
+                .then(response=> {
+                    console.log(response)
+                    window.location.href = "index.html";
+                })
+                .catch(error => console.log(error.response))
+            })
+            .catch(error => console.log(error.response))
+        })
+        .catch(error => console.log(error));
+    }
     function getUser(event) {
         //event.preventDefault();
         axios.get('http://localhost:3000/patient/user',
@@ -22,9 +49,9 @@ $(function(){
                 "Authorization": "Bearer " + jwt
             }})
             .then(response => {
-                console.log(user);
+                //console.log(user);
                 let providers = response.data.data;
-                console.log(providers)
+                //console.log(providers)
                 let providerNames = Object.keys(providers);
                 let matches = [];
                 providerNames.forEach(provider => {
@@ -57,7 +84,7 @@ $(function(){
     }
 
     function createRowBox(match){
-        console.log(match)
+        //console.log(match)
         let tableContent = $("#tableContent");
         let nameId = match.name.replace(/\s/g, '').replace('.','');
         tableContent.append(`

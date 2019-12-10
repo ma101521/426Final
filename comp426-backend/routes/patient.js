@@ -45,7 +45,7 @@ router.post('/create', authenticateUser, function (req, res) {
 
 router.get('/user', authenticateUser, function (req, res) {
     const username = req.user.name;
-    res.send({data: patientStore.get(`users.${username}`), status: 'Successfully found user '+username});
+    res.send({username: username, data: patientStore.get(`users.${username}`), status: 'Successfully found user '+username});
 });
 
 //delete patient method 
