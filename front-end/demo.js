@@ -1,4 +1,4 @@
-
+/* 
 //initialize communication with the platform
  var platform = new H.service.Platform({
   apikey: 'l1Lu-8FedQeEX8DEyatsDvHtips48kEmWgPt9OL0Rrs'
@@ -182,4 +182,4 @@ function getMap(houseNum, streetName, zipCode, mapID) {
 
 
   
-  
+   */
