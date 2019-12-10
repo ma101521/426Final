@@ -64,7 +64,7 @@ $(function(){
                     <div class="column">
                         <p class="contactName">
                             <span class="provName">${match.name}</span><br>
-                            ${match.address.number}${match.address.street}${match.address.zip} <br>
+                            ${match.address.number} ${match.address.street} ${match.address.zip} <br>
                             ${match.phone}
                         </p>
                     </div>
@@ -72,7 +72,7 @@ $(function(){
                         <p class="contactMatch">${match.matchPercentage}%</p>
                     </div>
                     <div class="column has-text-centered">
-                    ${getMap('112', 'battle lane', '27514', 'mappy')}
+                    
                     </div>
                 </div>
             </div>

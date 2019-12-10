@@ -115,7 +115,7 @@ $(function () {
             let phone = $('#providerPhone').val();
             let Num = $('#Number').val();
             let street = $('#Street').val();
-            let zip = $('#Zip').val();
+            let zip = $('#inputZip').val();
             let address = {'number': Num, 'street': street, 'zip':zip};
             axios({
                 method: 'post',
