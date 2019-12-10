@@ -176,7 +176,7 @@ function getMap(houseNum, streetName, zipCode, mapID) {
     
   }
   // Test calling the map function
-  getMap('112', 'battle lane', '27514', 'mappy');
+  //getMap('112', 'battle lane', '27514', 'mappy');
   //getMap('409','swann trl', '27527', 'mapContainer');
 
 

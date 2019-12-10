@@ -24,6 +24,7 @@ $(function(){
             .then(response => {
                 console.log(user);
                 let providers = response.data.data;
+                console.log(providers)
                 let providerNames = Object.keys(providers);
                 let matches = [];
                 providerNames.forEach(provider => {
@@ -58,6 +59,7 @@ $(function(){
     function createRowBox(match){
         console.log(match)
         let tableContent = $("#tableContent");
+        let nameId = match.name.replace(/\s/g, '').replace('.','');
         tableContent.append(`
             <div class="box rowBox ${match.name}">
                 <div class="columns">
@@ -72,12 +74,14 @@ $(function(){
                         <p class="contactMatch">${match.matchPercentage}%</p>
                     </div>
                     <div class="column has-text-centered">
-                        
+                        <div style="width: 240px; height: 240px" id="${nameId}">
+                        </div>
                     </div>
                 </div>
             </div>
         
         `)
+        getMap(match.address.number, match.address.street, match.address.zip, nameId)
     }
 
     /*+++++++++++++++POINT VALUES++++++++++++++++++
@@ -331,7 +335,7 @@ function getMap(houseNum, streetName, zipCode, mapID) {
     
       //This function will be called if a communication error occurs during the JSON-P request
       function onError(error) {
-        alert('Can\'t reach the remote server');
+        //aleralert('Can\'t reach the remote server');
       }
     
       //Initialize map
@@ -470,11 +474,23 @@ function getMap(houseNum, streetName, zipCode, mapID) {
       var router = platform.getRoutingService();
       router.calculateRoute(routingParameters, onResult,
         function(error) {
-          alert(error.message);
+          //alert(error.message);
         });
       }
       
     }
+
+
+
+
+    // Test calling the map function
+    //getMap('112', 'battle lane', '27514', 'mappy');
+    //getMap('409','swann trl', '27527', 'mapContainer');
+  
+  
+  
+    
+    
 
 
 
