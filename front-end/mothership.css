@@ -58,11 +58,19 @@ body{
 }
 
 .is-purple{
-    background-color: #c51bd4;
+    background-color:	#800080;
+}
+
+.is-lightblue{
+    background-color:#23d3fb;;
+}
+
+h4{
+    color: lightskyblue;
 }
 
 .button.is-purple{
-    background-color: #c51bd4;
+    background-color: 	#800080;
     color: white;
 }
 
