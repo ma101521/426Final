@@ -107,7 +107,10 @@ $(function () {
                     q11: $('#q11').val()
                 },
             })
-            .then(response => console.log(response))
+            .then(response => {
+                console.log(response)
+                window.location.href = "dashboard.html";
+            })
             .catch(error => console.log(error.response))
         }
         else {
@@ -141,7 +144,10 @@ $(function () {
                     q11: $('#q11').val()
                 },
             })
-            .then(response => console.log(response))
+            .then(response => {
+                console.log(response)
+                window.location.href = "dashboard.html";
+            })
             .catch(error => console.log(error))
         }
     }
