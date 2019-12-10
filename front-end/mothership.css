@@ -79,6 +79,80 @@ h3{
     border-color: #c51bd4;
 }
 
+.button.is-purple {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: 	#800080;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button.is-purple span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button.is-purple span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button.is-purple:hover span {
+    padding-right: 25px;
+}
+
+.button.is-purple:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+.button.is-lightblue {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: 	#49c6f4;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button.is-lightblue span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+.button.is-lightblue span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+.button.is-lightblue:hover span {
+    padding-right: 25px;
+}
+
+.button.is-lightblue:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
 .button a{
     color: white;
 }
@@ -88,7 +162,7 @@ h3{
 }
 
 .button.is-lightblue:hover{
-    background-color: #49c6f4;
+    background-color: #23d3fb;
 }
 
 .question .box{
@@ -144,6 +218,8 @@ h3{
     margin-left: 3%;
     width: 300px;
 }
+
+
 
 /*.control .checkmark:after {
     left: 9px;
