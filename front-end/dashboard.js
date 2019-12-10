@@ -74,7 +74,7 @@ $(function(){
                         <p class="contactMatch">${match.matchPercentage}%</p>
                     </div>
                     <div class="column has-text-centered">
-                        <div style="width: 240px; height: 240px" id="${nameId}">
+                        <div style="width: 340px; height: 200px" id="${nameId}">
                         </div>
                     </div>
                 </div>
