@@ -35,7 +35,7 @@ router.get('/status', authenticateUser, function (req, res) {
  */
 router.post('/login', async function (req, res) {
   if (!req.body.name || !req.body.pass) {
-    res.status(401).send({msg: 'Expected a payload of name and pass.'});
+    res.status(401).send({msg: 'Expected a username and password.'});
     return;
   }
 
