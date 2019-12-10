@@ -13,7 +13,7 @@ $(function() {
 
     function SignUp(event){
         event.preventDefault();
-
+        $('#errorBanner').empty()
         //console.log(token);
         let username = $('#username').val();
         let password = $('#password').val();
@@ -61,6 +61,7 @@ $(function() {
         let username = $('#username').val();
         let password = $('#password').val();
 
+        $('#errorBanner').empty()
         axios.post('http://localhost:3000/account/login',
         {
           name: username,
