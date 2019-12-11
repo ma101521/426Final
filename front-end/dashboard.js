@@ -281,7 +281,7 @@ function autocomplete(input, array){
         let value = input.val();
         if (value != ""){
             for (let i = 0; i < array.length; i++){
-                if (array[i].substr(0, value.length).toLowerCase() == value.toLowerCase()){
+                if (array[i].toLowerCase().includes(value.toLowerCase())){
                     result.push(array[i]);
                 }
             }
