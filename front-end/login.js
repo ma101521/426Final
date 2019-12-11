@@ -39,18 +39,22 @@ $(function() {
               }
             })
             .catch(error => console.log(error))
-            $('#errorBanner').empty();
-            $('#errorBanner').append(`<p>Successfully made account!</p>`);
+            $('#successBanner').empty();
+            $('#successBanner').append(`<p>Successfully made account!</p>`);
+            $('#successBanner').show();
             setTimeout(function(){
-              $('#errorBanner').empty()
+              $('#successBanner').empty()
+              $('#successBanner').hide()
               window.location.href = "survey.html";
             }, 1500);
             
           }
         }).catch(error => {
           $('#errorBanner').append(`<p>${error.response.data.msg}</p>`);
+          $('#errorBanner').show();
           setTimeout(() => {
             $('#errorBanner').empty()
+            $('#errorBanner').hide();
           }, 3000);
         }); 
     }
@@ -86,8 +90,10 @@ $(function() {
           }
         }).catch(error => {
           $('#errorBanner').append(`<p>${error.response.data.msg}</p>`);
+          $('#errorBanner').show();
           setTimeout(() => {
             $('#errorBanner').empty()
+            $('#errorBanner').hide();
           }, 3000);
         })  
     }
