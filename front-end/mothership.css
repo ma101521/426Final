@@ -26,7 +26,13 @@ body{
     margin-right: 10%;
     margin-bottom: 10%;
     background: linear-gradient(#49c6f4, #c51bd4);
+
+
 }
+
+.rowBox:hover {
+    box-shadow: 0 0 10px rgb(256,256,256); 
+  }
 
 .rowBox{
     padding: 4%;
