@@ -19,15 +19,16 @@
         <div class="container">
             <div>
                 <h1 class="title has-text-white has-text-centered">Dashboard</h1>
-                <h5 class="subtitle has-text-weight-light has-text-white is-italic has-text-centered">View information about providers</h5>
+                <h5 class="subtitle has-text-weight-light has-text-white is-italic has-text-centered">View Information About Providers</h5>
             </div>
         </div>
     </div>
     <div id="Dashboard">
         <div>
-            <div style = "text-align: right">
-            <button class="button is-purple is-pulled-right" id='deleteProfile'>Delete your profile</button>
-            <button class="button is-purple" id='logout'>Logout</button></div>
+            <div style = "text-align: right" id="top-buttons">
+                <button class="button is-lightblue is-pulled-right" id='deleteProfile'> <span>Delete Your Profile </span></button>
+                <button class="button is-lightblue" id='logout'> <span>Logout</span></button>
+            </div>
             <div class="level">
                 <div>
                     <h1 class="title">Your Matches</h1>
@@ -36,7 +37,7 @@
                     <form action="/action_page.php" class="form is-pulled-right" id="searchDiv">
                         <div class="level">
                             <input type="text" placeholder="Search..." name="search" class="input" id="searchBar">
-                            <button class="button is-purple is-pulled-right" type="submit" id="searchButton">Submit</button>
+                            <button class="button is-purple is-pulled-right" type="submit" id="searchButton"> Submit</button>
                         </div>
                         <div class="resultsDiv list">
 
@@ -63,6 +64,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="content has-text-centered">
+            <img src="https://images.squarespace-cdn.com/content/v1/5936f3f6bebafb6f7f7e870c/1502379277823-6TU48YO0ZZEZ0R0WP2WW/ke17ZwdGBToddI8pDm48kE6C5A_fKkDHghe563YWkUMUqsxRUqqbr1mOJYKfIPR7LoDQ9mXPOjoJoqy81S2I8N_N4V1vUb5AoIIIbLZhVYy7Mythp_T-mtop-vrsUOmeInPi9iDjx9w8K4ZfjXt2dt0OkerdWMkSOwCF5imnw6WKYGRjPQyWvIyWNF0VDGrrCjLISwBs8eEdxAxTptZAUg/image-asset.png?format=500w">
     </div>
     <!--Scripts-->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

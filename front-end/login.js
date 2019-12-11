@@ -106,7 +106,7 @@ $(function() {
       event.preventDefault();
       $('#signupBox').replaceWith(`<div id="loginBox" class="control content has-text-centered">
       <button type="submit" class="button is-purple loginButton">
-          Login
+         <span> Login </span>
       </button>
       <div id ="showSignup">
           <a href="/#">Don't have an account? Create Account Here!</a>
