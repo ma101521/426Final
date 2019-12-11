@@ -1,9 +1,14 @@
 //import './demo.js';
 $(function(){
 
-    $('#deleteProfile').click(deleteProfile)
+    $('#deleteProfile').click(deleteProfile);
+    $('#logout').click(logout);
     let jwt = localStorage.getItem('jwt');
     getUser();
+
+    function logout(event){
+        window.location.href = "index.html";
+    }
 
     function deleteProfile(event){
         event.preventDefault();
