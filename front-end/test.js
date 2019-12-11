@@ -3,7 +3,7 @@ $(function () {
 
     let jwt = localStorage.getItem('jwt');
 
-    $('#submitbutton').click(create);
+    $('#submitbutton').click(validate);
     $('#providerRadio').on("change", function () {
         $('#providerForm').show()
     })
@@ -56,6 +56,25 @@ $(function () {
         })
         .then(response => console.log(response))
         .catch(error => console.log(error.reponse))
+    }
+
+    function validate(event){
+        event.preventDefault();
+        let q0a = $('input[name="I am a"]:checked').val();
+        let q1a = $('input[name="What is your gender?"]:checked').val();
+        let q4a = $('input[name="I like routine."]:checked').val();
+        let q5a = $('input[name="I like structure."]:checked').val();
+        let q6a = $('input[name="I am a perfectionist."]:checked').val();
+        let q7a = $('input[name="It’s important for me and my family to achieve health ideals."]:checked').val();
+        let q8a = $('input[name="My family’s overall well-being is more important to me than achieving specific health ideals."]:checked').val();
+        if (q0a == undefined || q1a == undefined || q4a == undefined || q5a == undefined || q6a == undefined
+            || q7a == undefined  || q8a == undefined){
+                $('#submissionValidate').show();
+        }
+        else{
+            $('#submissionValidate').hide();
+            create(event);
+        }
     }
 
     function create(event) {
@@ -120,6 +139,7 @@ $(function () {
             let street = $('#Street').val();
             let zip = $('#inputZip').val();
             let address = {'number': Num, 'street': street, 'zip':zip};
+
             axios({
                 method: 'post',
                 url: 'http://localhost:3000/provider/create',
