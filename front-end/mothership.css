@@ -31,20 +31,20 @@ body{
 }
 
 .rowBox:hover {
-    box-shadow: 0 0 10px rgb(256,256,256); 
+    box-shadow: 0 0 10px rgb(211,211,211); 
   }
 
 .rowBox{
     padding: 4%;
     margin: 5%;
-    border: thin solid black;
+    border: thin solid lightgray;
 }
 
 .rowHeader{
     padding-left: 4%;
     padding-right: 4%;
     margin: 5%;
-    border: thin solid black;
+    border: thin solid lightgray;
 }
 
 .contactName{
