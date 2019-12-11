@@ -146,7 +146,7 @@ $(function () {
             })
             .then(response => {
                 console.log(response)
-                window.location.href = "dashboard.html";
+                window.location.href = "thankyou.html";
             })
             .catch(error => console.log(error))
         }
